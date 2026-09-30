@@ -1,0 +1,252 @@
+%-------------------------
+% Academic Curriculum Vitae in LaTeX
+% Author : Hari Krishna Joshi
+% Targeted for: Master's in Computer Science / Robotics & Grant Applications
+% Based on: Jake Gutierrez (MIT License)
+%
+% NOTE: Only IELTS and References contain \tbd{} placeholders.
+%-------------------------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{6.0pt}
+
+% Geometry & margins: clean, uniform 0.55in all around
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-.6in}
+\addtolength{\textheight}{1.2in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Consistent Section Headings
+\titleformat{\section}{
+  \vspace{6pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{3pt}]
+
+% Ensure ATS parsing
+\pdfgentounicode=1
+
+%-------------------------
+% Uniform List & Item Commands (managed cleanly via enumitem)
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \item\vspace{2pt}
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small #2 \\
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-2pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item\vspace{2pt}
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \small #1 & \small #2 \\
+    \end{tabular*}\vspace{-2pt}
+}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.18in, itemsep=1.5pt, parsep=0pt, topsep=2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{2pt}}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}, itemsep=3pt, topsep=1pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+% Red placeholder: only for IELTS and References
+\newcommand{\tbd}[1]{{\color{red}[#1]}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Hari Krishna Joshi} \\ \vspace{3pt}
+    Kathmandu, Nepal (UTC +5:45) \\ \vspace{3pt}
+    \small 
+    \raisebox{-0.05\height}\faPhone\ +977-9840046008 \quad$|$\quad 
+    \href{mailto:harijoshi07x@gmail.com}{\raisebox{-0.15\height}\faEnvelope\ \underline{harijoshi07x@gmail.com}} \quad$|$\quad 
+    \href{https://linkedin.com/in/harijoshi07/}{\raisebox{-0.15\height}\faLinkedin\ \underline{LinkedIn}} \quad$|$\quad 
+    \href{https://github.com/harijoshi07}{\raisebox{-0.15\height}\faGithub\ \underline{GitHub}} \quad$|$\quad 
+    \href{https://harijoshi07.github.io/portfolio}{\raisebox{-0.15\height}\faGlobe\ \underline{Portfolio}}
+    \vspace{-4pt}
+\end{center}
+
+%-----------RESEARCH INTERESTS-----------
+\section{Research Interests}
+\begin{itemize}[leftmargin=0.18in, label={}]
+    \small{\item{
+      Vision-based obstacle detection and avoidance for small aerial robots in cluttered environments, with a focus on real-time perception and local planning under tight onboard compute and latency budgets. This grew out of my capstone on a vision-based autonomous UAV and my industry work on real-time location and payment systems.
+    }}
+\end{itemize}
+\vspace{-4pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Institute of Engineering (IOE), Thapathali Campus}{May 2021 -- May 2025}
+      {Bachelor of Electronics, Communication and Information Engineering}{Kathmandu, Nepal}
+      \resumeItemListStart
+        \resumeItem{\textbf{Percentage}: 63.99\% \quad$|$\quad \textbf{English}: IELTS \tbd{planned month/year; add band score once received}}
+        \resumeItem{\textbf{Relevant Coursework}: Control Systems, Microprocessors \& Microcontrollers, Artificial Intelligence, Digital Signal Processing, Computer Networks, Operating Systems, Object-Oriented Programming, Embedded System Design.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------RESEARCH & CAPSTONE PROJECTS-----------
+\section{Research \& Capstone Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Vision-Based Autonomous UAV for Obstacle Detection, Avoidance, and Navigation} $|$ \emph{Capstone} \hspace{4pt}
+       \href{https://www.kalyankumarshrestha.com.np/}{\faGlobe}}{2024 -- 2025}
+      \resumeItemListStart
+        \resumeItem{\textbf{Team \& Role}: Final-year major project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Umesh Kanta Ghimire (Head of Department).}
+        \resumeItem{Built an autonomous quadrotor (F330 frame, Pixhawk 4X, Raspberry Pi 4B) that detects obstacles with YOLOv8 and Intel RealSense D435 RGB-D depth sensing to navigate safely in cluttered environments.}
+        \resumeItem{Implemented 3D occupancy voxel mapping and an RRT* trajectory planner in ROS on the companion computer, streaming velocity commands to the flight controller over UART at 10 Hz.}
+        \resumeItem{Optimized YOLOv8 through ONNX export and TensorFlow Lite (TFLite) quantization (FP16/INT8) deployed with OpenCV DNN for low-latency onboard inference on the Raspberry Pi 4B.}
+        \resumeItem{Validated the pipeline in Gazebo and PX4 simulation, followed by field flight tests at 1.3 m altitude and 0.4 m/s default speed, demonstrating dynamic depth thresholding within 2 m and autonomous waypoint avoidance replanning.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Public Transportation Assistance using Artificial Neural Network} $|$ \emph{Minor Project} \hspace{4pt}
+       \href{https://github.com/harijoshi07/public-transport-assistant-ann}{\faGithub}}{2024}
+      \resumeItemListStart
+        \resumeItem{\textbf{Team \& Role}: Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal.}
+        \resumeItem{Built a GPS tracking unit from an Arduino Mega, NEO-6M GPS, and SIM900 GSM module that posts vehicle position to ThingSpeak every 30 seconds.}
+        \resumeItem{Built a Django REST Framework backend with Django Channels (WebSockets) that streams live bus positions, routes, and fares to a Leaflet and OpenStreetMap web interface.}
+        \resumeItem{Trained a feedforward neural network (hidden layers of 64 and 32 units, dropout 0.3) on 2022--2023 bus GPS records to predict travel time between stops, reaching R$^2$ = 0.965 on a held-out 20\% test set.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------REPORTS-----------
+\section{Reports}
+  \begin{itemize}[leftmargin=0.18in, itemsep=2pt, parsep=0pt, topsep=2pt]
+    \resumeItem{\textbf{Major Project Report} (Team Lead, team of 4), IOE Thapathali Campus, March 2025: \emph{A Vision based Autonomous UAV for Obstacle Detection, Avoidance and Navigation in Cluttered Environment}. Supervisor: Er. Umesh Kanta Ghimire.}
+    \resumeItem{\textbf{Minor Project Report} (Team Lead, team of 4), IOE Thapathali Campus, March 2024: \emph{Public Transportation Assistance using Artificial Neural Network}. Supervisor: Er. Kiran Chandra Dahal.}
+  \end{itemize}
+
+%-----------INDUSTRY EXPERIENCE-----------
+\section{Industry Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Mobile Engineer}{Jul 2026 -- Present}
+      {Swift Technology}{Kathmandu, Nepal}
+      \resumeItemListStart
+        \resumeItem{Built a cash-in feature for a remittance app in Kotlin and Jetpack Compose that tracks ATM cash deposits in real time using polling, coroutines, and Flows.}
+        \resumeItem{Added security hardening to a legacy Java/XML remittance app: reverse-engineering protection, idle-session logout, screenshot prevention, VPN detection, and new-device detection.}
+        \resumeItem{Rebuilding a second remittance app in Flutter as a multi-module architecture that separates platform, product, and region-specific solution repositories.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Mobile Systems Engineer}{Apr 2025 -- Apr 2026}
+      {Kathmandu Living Labs}{Kathmandu, Nepal}
+      \resumeItemListStart
+        \resumeItem{Built core features of the Baato Maps Android app, including navigation, search, and real-time location data visualization.}
+        \resumeItem{Built the main map interface with the MapLibre SDK and improved rendering performance.}
+        \resumeItem{Fixed bugs and refactored components, reducing the crash rate by 30\% in key user flows.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Android Developer Intern}{Aug 2024 -- Sep 2024}
+      {Uncle Sam's Technologies}{Remote}
+      \resumeItemListStart
+        \resumeItem{Integrated the Stripe Android SDK to implement a secure payment flow, and built a WebView component for embedded web content.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------SELECTED SOFTWARE BUILDS-----------
+\section{Selected Software Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Driving License Exam Nepal} $|$ \emph{Kotlin, Jetpack Compose, Material 3} \hspace{4pt}
+       \href{https://github.com/harijoshi07/Driving-License-Exam-App}{\faGithub} \hspace{4pt}
+       \href{https://play.google.com/store/apps/details?id=com.hari.drivinglicenseexamnepal_}{\faGooglePlay}}{2025}
+      \resumeItemListStart
+        \resumeItem{Built an offline-first exam preparation app for Nepal's driving license test; published on Google Play with 1,000+ downloads.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{IPO Share} $|$ \emph{Kotlin, Android SDK, MVVM, SQLite, Retrofit} \hspace{4pt}
+       \href{https://github.com/harijoshi07}{\faGithub}}{May 2026}
+      \resumeItemListStart
+        \resumeItem{Built an app for IPO allotment discovery and portfolio tracking, with local SQLite caching and live results fetched through Retrofit.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+  \begin{itemize}[leftmargin=0.18in, itemsep=2.5pt, parsep=0pt, topsep=2pt, label={}]
+    \small{\item{
+      \textbf{Robotics \& Perception}{: ROS / ROS 2, PX4, Pixhawk 4X, Gazebo, RGB-D Sensing (Intel RealSense D435), Occupancy Mapping, RRT* and B-spline Trajectory Planning} \\
+      \textbf{Machine Learning}{: Computer Vision (YOLOv8, TFLite), TensorFlow / Keras, scikit-learn, OpenCV DNN, pandas, NumPy} \\
+      \textbf{Languages}{: C++, Python, Kotlin, Java, Dart, C, SQL, Bash} \\
+      \textbf{Embedded \& Hardware}{: Arduino Mega, Raspberry Pi 4B, NEO-6M GPS, SIM900 GSM, UART Serial Communication} \\
+      \textbf{Mobile}{: Android SDK, Jetpack Compose, Flutter, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), MapLibre SDK, Room, Retrofit, Ktor} \\
+      \textbf{Systems \& Tools}{: Linux, Git, Django REST Framework, Django Channels (WebSockets)}
+    }}
+  \end{itemize}
+
+%-----------HONORS & LEADERSHIP---------------
+\section{Honors \& Leadership}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Winner, Dristi 3.0 Hackathon} $|$ \emph{Kathmandu Engineering College}}{Jan 2025}
+      \resumeItemListStart
+        \resumeItem{Built an educational Android app teaching Nepali language, culture, and folklore to NRN children.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Secretary, Leo Club of Kathmandu-Aarambha Deurali} $|$ \emph{Lions Club}}{2024 -- 2025}
+      \resumeItemListStart
+        \resumeItem{Organized campus-wide community initiatives, including a blood donation program at Thapathali Campus (120+ donors).}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------REFERENCES-----------
+\section{References}
+  \begin{itemize}[leftmargin=0.18in, label={}]
+    \small{\item{\tbd{2--3 referees: name, title, institution, email. E.g., Er. Umesh Kanta Ghimire (Supervisor, Head of Department, IOE Thapathali Campus, umesh@ioe.edu.np) and industry manager.}}}
+  \end{itemize}
+
+\end{document}
