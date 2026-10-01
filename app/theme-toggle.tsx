@@ -11,8 +11,7 @@ export default function ThemeToggle() {
     setMounted(true)
   }, [])
 
-  // If not mounted yet, default to dark representation
-  const isDark = mounted ? resolvedTheme === 'dark' : true
+  const isDark = mounted && resolvedTheme === 'dark'
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')

@@ -13,11 +13,8 @@ export default function AboutPage() {
     <>
       <header className="page-hero">
         <div className="site-shell">
-          <p className="eyebrow">Biography & Background</p>
+          <p className="eyebrow">{personal.location}</p>
           <h1 className="page-title">About</h1>
-          <p className="page-deck">
-            Robotics and systems engineer with a background in electronics, communication, and real-time mobile platforms.
-          </p>
         </div>
       </header>
 
@@ -38,15 +35,9 @@ export default function AboutPage() {
       {/* Interests */}
       <section className="section">
         <div className="site-shell section-grid">
-          <h2 className="section-label">Research interests</h2>
+          <h2 className="section-label">Interests</h2>
           <div>
-            <div className="tag-row" style={{ marginTop: 0 }}>
-              {about.interests.map((interest) => (
-                <span key={interest} className="status" style={{ border: '1px solid var(--line)', color: 'var(--ink)', padding: '5px 12px', fontSize: '0.74rem' }}>
-                  {interest}
-                </span>
-              ))}
-            </div>
+            <p className="record-copy">{about.interests.join('. ')}.</p>
           </div>
         </div>
       </section>
@@ -80,7 +71,7 @@ export default function AboutPage() {
           <h2 className="section-label">Contact</h2>
           <div>
             <p className="record-copy">
-              Feel free to reach out regarding research opportunities, collaborations, or systems discussions.
+              Email is enough. A short note about what you are working on is plenty.
             </p>
             <div className="link-row section-action">
               <a className="text-link" href={`mailto:${personal.email}`}>Email</a>

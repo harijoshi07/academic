@@ -30,6 +30,7 @@ export interface Project {
   title: string
   category: string
   description: string
+  summary?: string
   systemsFocus: string
   tags: string[]
   status: 'Active' | 'Archived'
@@ -62,9 +63,11 @@ export interface Content {
     linkedin: string
     orcid: string | null
     twitter: string | null
+    cv: string
   }
   hero: {
     eyebrow: string
+    identity: string
     thesis: string
     support: string
   }
@@ -95,21 +98,24 @@ export const content: Content = {
     linkedin: 'https://linkedin.com/in/harijoshi07',
     orcid: null,
     twitter: 'https://x.com/sometimesIcode_',
+    cv: 'https://drive.google.com/file/d/10iii42ZgEahdjW4edyy8cVo_5Ujwqsd4/view?usp=sharing',
   },
 
   hero: {
-    eyebrow: 'Autonomous Robotics · Mobile Systems · Embedded Perception',
+    eyebrow: 'Kathmandu, Nepal',
+    identity:
+      'Electronics engineer preparing for graduate work on perception and navigation when the computer is small.',
     thesis:
       'How can autonomous agents and mobile platforms perform reliable perception, localization, and navigation under severe hardware and computational constraints?',
     support:
-      'My work spans vision-based aerial robotics (ROS, depth perception, real-time obstacle avoidance in cluttered environments), embedded sensor telemetry (GPS/GSM, microcontrollers), and high-reliability mobile systems (real-time mapping workflows, offline architectures).',
+      'Electronics engineer in Kathmandu working on onboard perception and live telemetry under tight compute.',
   },
 
   currentResearch: {
     question:
       'How can lightweight vision and sensor fusion models provide real-time spatial awareness and dynamic obstacle avoidance on compute-constrained embedded platforms?',
     evidence:
-      'In our final-year capstone at IOE Thapathali Campus, we designed an autonomous UAV system utilizing onboard camera and depth sensing integrated within a ROS framework for real-time obstacle detection, avoidance, and local path planning in cluttered spaces. Combined with our 6th-sem hardware telemetry pipelines and production MapLibre geospatial mapping at Kathmandu Living Labs, this demonstrated how edge-compute constraints directly dictate perception-to-actuation latency.',
+      'A vision quadrotor that replans on a Raspberry Pi, and a Kathmandu corridor tracker whose report measured R² 0.965 and MAPE 6.74%.',
     status:
       'Undergraduate research and engineering completed at Tribhuvan University, IOE Thapathali Campus. Preparing research proposals for Master\'s programs in Computer Science and Robotics.',
   },
@@ -120,18 +126,17 @@ export const content: Content = {
       title: 'Vision-Based Autonomous UAV Navigation in Cluttered Environments',
       context: 'Final-Year Capstone Project · Tribhuvan University, IOE Thapathali Campus (2024–2025)',
       question:
-        'How can onboard perception and lightweight depth estimation reliably generate real-time collision-free trajectories in cluttered, GPS-denied environments without prohibitive compute hardware?',
+        'How does a small quadrotor see an obstacle and change course when the only computer onboard is a Raspberry Pi?',
       methodology:
-        'Implemented a ROS-based modular architecture linking camera and depth perception to an onboard companion computer running embedded Linux. Structured node communications to handle sensor streams, spatial obstacle mapping, and local trajectory generation for indoor and low-altitude flight stabilization.',
+        'F330 quadrotor with a Pixhawk 4X, Raspberry Pi 4B, and Intel RealSense D435. YOLOv8 is quantized through ONNX and TFLite (FP16/INT8), run with OpenCV DNN, then replanned with an occupancy map and RRT* on the Pi. Commands go to the Pixhawk over UART. Flown in Gazebo, then in a college parking lot, a forest area, and open ground.',
       findings:
-        'Real-time obstacle avoidance on constrained flight hardware requires aggressive optimization of perception-to-actuation latency. Tradeoffs between sensor resolution and frame rate directly govern the maximum safe traversal velocity in cluttered environments.',
+        'On a logged flight the auto segment was 0–1 m/s (average 0.36 m/s) at about 0.9–1.5 m altitude. Early flights were limited by GPS interference from the Pi and the battery; raising the GPS module reduced it. The log is not fast flight through dense clutter, and it is not flight without GPS.',
       systemsFocus:
         'Real-time depth processing, ROS node communication topology, compute-constrained local path planning, aerial flight stabilization.',
       tags: ['ROS', 'Computer Vision', 'Depth Sensing', 'UAV Autonomy', 'Embedded Linux', 'C++', 'Python'],
       links: [
         { label: 'Report', href: 'https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing' },
         { label: 'Demo', href: 'https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing' },
-        { label: 'Collaborator Portfolio', href: 'https://www.kalyankumarshrestha.com.np/' },
       ],
     },
     {
@@ -139,35 +144,18 @@ export const content: Content = {
       title: 'Real-Time GPS Telemetry and Neural Network ETA Prediction for Urban Transit',
       context: '6th-Semester Minor Project · Tribhuvan University, IOE Thapathali Campus (2024)',
       question:
-        'How can low-cost edge microcontrollers maintain reliable telemetry under intermittent cellular connectivity, and can deep neural networks accurately predict arrival times from sparse historical GPS traces?',
+        'How do you keep a bus position when the cellular link is intermittent, and how close can a small network get to the arrival time on a known Kathmandu corridor?',
       methodology:
-        'Built an integrated hardware-software pipeline: Arduino Mega + NEO-6M GPS + SIM900 GSM transmitting time-series spatial coordinates to ThingSpeak, ingested into a Django backend via WebSockets. Trained a Deep Neural Network (DNN) on historical corridor transit logs, integrated with Graphhopper routing for dynamic road network distance estimation.',
+        'Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that posts a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets that streams positions, routes, and fares to a Leaflet map. A feedforward network (hidden layers of 64 and 32 units, dropout 0.3) trained on 2022–2023 corridor GPS records.',
       findings:
-        'Network latency fluctuations and packet loss in cellular edge environments require client-side fallback buffering; combining physical road network topology (Graphhopper) with DNN residual learning significantly outperformed static velocity-distance heuristics for arrival estimation.',
+        'The project report measured R² = 0.965 and MAPE 6.74% on a held-out test set. A trip is drawn only when both ends share a stored corridor. A fix older than 30 seconds is marked stale.',
       systemsFocus:
         'Edge hardware sensor acquisition, asynchronous WebSocket ingestion, DNN time-series prediction, spatial database indexing with PostgreSQL.',
-      tags: ['Arduino', 'GPS/GSM', 'Deep Learning', 'Django', 'WebSockets', 'PostgreSQL', 'Graphhopper'],
+      tags: ['Arduino', 'GPS/GSM', 'Deep Learning', 'Django', 'WebSockets', 'PostgreSQL'],
       links: [
         { label: 'Repository', href: 'https://github.com/harijoshi07/public-transport-assistant-ann' },
         { label: 'Report', href: 'https://drive.google.com/file/d/1OQ9E2Be1z1Rs9MlQo7qIhcqWz8Cyc8Of/view?usp=sharing' },
         { label: 'Demo', href: 'https://drive.google.com/file/d/1QK_E9o4nTWwKg8LO8D3vSZ7M-Gffb--v/view?usp=sharing' },
-      ],
-    },
-    {
-      id: 'maplibre-concurrency-investigation',
-      title: 'Concurrency Control and Thread Isolation in High-Frequency Spatial Mapping Engines',
-      context: 'Production Engineering · Kathmandu Living Labs (Baato Maps, 2025)',
-      question:
-        'How can high-frequency GPS stream ingestion and continuous vector map rendering operate simultaneously on resource-constrained mobile hardware without causing UI thread contention and memory leaks?',
-      methodology:
-        'Profiled rendering pipelines and lifecycle subscriptions in MapLibre Android SDK. Decoupled high-frequency GPS sensor polling and real-time route snapping into dedicated background coroutine scopes, isolating heavy vector calculations from the main UI thread. Implemented memory-bounded offline tile caching.',
-      findings:
-        'Map view lifecycle leaks were primarily caused by lingering asynchronous subscriptions during orientation shifts and rapid navigation state changes. Structuring strict scope cancellation and state hoisting improved navigation session stability to 99.9% crash-free.',
-      systemsFocus:
-        'Mobile concurrency, coroutine scope management, memory-bounded spatial caching, lifecycle-bound streaming.',
-      tags: ['Kotlin', 'MapLibre SDK', 'Coroutines', 'Jetpack Compose', 'Android Architecture', 'Room DB'],
-      links: [
-        { label: 'Company', href: 'https://www.kathmandulivinglabs.org/' },
       ],
     },
   ],
@@ -197,15 +185,16 @@ export const content: Content = {
       title: 'Vision-Based Autonomous UAV for Obstacle Detection, Avoidance, and Navigation',
       category: 'aerial robotics',
       description:
-        'Final-year major capstone project at IOE, Thapathali Campus (Team Lead, team of 4; Supervisor: Er. Umesh Kanta Ghimire). Built a physical F330 quadrotor with Pixhawk 4X and Raspberry Pi 4B that detects obstacles using YOLOv8 and Intel RealSense D435 RGB-D depth sensing to navigate safely in cluttered environments. Implemented 3D occupancy voxel mapping and an RRT* trajectory planner in ROS on the companion computer, streaming velocity commands over UART at 10 Hz. Optimized YOLOv8 through ONNX export and TFLite quantization (FP16/INT8) deployed via OpenCV DNN. Validated in Gazebo/PX4 simulation and field flight tests at 1.3 m altitude and 0.4 m/s default speed, achieving real-time depth-thresholded obstacle detection within 2 m and autonomous waypoint avoidance replanning.',
+        'Final-year major project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Umesh Kanta Ghimire. F330 quadrotor (Pixhawk 4X, Raspberry Pi 4B, Intel RealSense D435) that detects obstacles with YOLOv8, quantized through ONNX and TFLite and run with OpenCV DNN, then replans with an occupancy map and RRT* on the Pi. Logged auto flight was 0–1 m/s (average 0.36 m/s) at about 0.9–1.5 m altitude.',
       systemsFocus:
-        'Vision-based onboard perception, depth sensor processing (Intel RealSense D435), real-time dynamic obstacle avoidance, ROS node communication pipeline, local trajectory planning under constrained embedded compute (Raspberry Pi 4B), Pixhawk 4X UART offboard control, flight stability in cluttered environments.',
+        'Onboard perception and local planning on a Raspberry Pi, occupancy mapping, RRT*, UART commands to a Pixhawk 4X.',
+      summary:
+        'A quadrotor that sees obstacles with a camera and a depth sensor, then replans a path on a Raspberry Pi.',
       tags: ['ROS', 'Computer Vision', 'YOLOv8', 'Depth Sensing', 'UAV Systems', 'Pixhawk 4X', 'Embedded Linux', 'C++', 'Python', 'RRT*'],
       status: 'Archived',
       links: [
         { label: 'Report', href: 'https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing' },
         { label: 'Demo', href: 'https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing' },
-        { label: 'Collaborator Portfolio', href: 'https://www.kalyankumarshrestha.com.np/' },
       ],
     },
     {
@@ -213,10 +202,12 @@ export const content: Content = {
       title: 'Public Transportation Assistance using Artificial Neural Network',
       category: 'embedded iot',
       description:
-        'Third-year academic minor project at IOE, Thapathali Campus (Team Lead, team of 4; Supervisor: Er. Kiran Chandra Dahal). Built an IoT vehicle tracking hardware unit combining Arduino Mega, NEO-6M GPS, and SIM900 GSM module that streams position coordinates to ThingSpeak every 30 seconds. Ingested data into a Django REST Framework backend with Django Channels (WebSockets) streaming live positions, routes, and fares to a Leaflet/OpenStreetMap interface. Trained a feedforward neural network (64 and 32 units, dropout 0.3) on historical bus GPS corridor records, achieving R² = 0.965 on a held-out 20% test set.',
+        'Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal. Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) posting a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets streaming positions, routes, and fares to a Leaflet map. The project report measured R² = 0.965 and MAPE 6.74% on a held-out test set.',
       systemsFocus:
-        'Hardware–software telemetry integration (Arduino Mega + GPS/GSM → ThingSpeak → Django Channels), real-time WebSocket position streaming, DNN-based arrival time prediction, geospatial routing with Graphhopper and Leaflet/OSM, PostgreSQL persistence.',
-      tags: ['Arduino', 'GPS (NEO-6M)', 'SIM900 GSM', 'Django', 'WebSockets', 'Deep Learning', 'PostgreSQL', 'Graphhopper', 'Python'],
+        'Sparse GPS telemetry over GSM, a live corridor map, and arrival estimation from a small feedforward network.',
+      summary:
+        'A GPS and GSM tracker, a live map, and a neural net that estimates bus arrival on Kathmandu corridors.',
+      tags: ['Arduino', 'GPS (NEO-6M)', 'SIM900 GSM', 'Django', 'WebSockets', 'Deep Learning', 'PostgreSQL', 'Python'],
       status: 'Archived',
       links: [
         { label: 'Repository', href: 'https://github.com/harijoshi07/public-transport-assistant-ann' },
@@ -236,9 +227,7 @@ export const content: Content = {
         'MapLibre SDK integration, real-time navigation overlays, threading and lifecycle management for map views, GPS polling architecture, offline tile persistence.',
       tags: ['Kotlin', 'MapLibre SDK', 'Coroutines', 'Jetpack Compose', 'Room DB'],
       status: 'Active',
-      links: [
-        { label: 'Company', href: 'https://www.kathmandulivinglabs.org/' },
-      ],
+      links: [],
     },
     {
       id: 'driving-license-app',
@@ -299,42 +288,35 @@ export const content: Content = {
 
   about: {
     bio: [
-      'I am an engineer from Kathmandu, Nepal, working at the convergence of autonomous robotics, embedded perception, and real-time mobile systems. I hold a Bachelor of Engineering in Electronics, Communication & Information Technology from Tribhuvan University, IOE Thapathali Campus.',
-      'During my undergraduate studies, I focused on autonomous systems and spatial computing: for our capstone, our team developed a vision-based autonomous UAV capable of real-time obstacle detection, depth perception, and dynamic trajectory planning in cluttered environments using ROS and onboard sensing. Previously, for our 6th-semester minor project, we engineered an end-to-end GPS/GSM tracking and deep neural network ETA prediction pipeline on custom Arduino hardware.',
-      'Professionally, as a Mobile Engineer at Kathmandu Living Labs, I engineer location services and navigation systems for Baato Maps using MapLibre SDK, focusing on real-time routing overlays, lifecycle concurrency, and offline tile caching. I am pursuing graduate study (Master\'s in Computer Science / Robotics) to investigate real-time perception, state estimation, and path planning for autonomous mobile platforms under severe computational and sensing constraints.',
+      'I live in Kathmandu. In 2025 I finished a bachelor\'s in Electronics, Communication and Information Engineering at the Institute of Engineering, Thapathali Campus, Tribhuvan University.',
+      'I want a master\'s on perception and navigation for machines that cannot assume a large computer or a reliable link.',
     ],
     interests: [
-      'Autonomous aerial robotics (UAVs)',
-      'Vision-based perception & depth sensing',
-      'Real-time obstacle avoidance & path planning',
-      'Robot Operating System (ROS)',
-      'Embedded systems & edge computing',
-      'Location-aware systems & GPS telemetry',
-      'Offline-first architectures & concurrency',
+      'Perception and local planning for small aerial robots, and arrival estimation from sparse GPS, when the onboard computer and the link are limited',
     ],
     education: [
       {
         year: '2026–Present',
         label: 'Swift Technology',
-        detail: 'Mobile Engineer — Real-time ATM cash-in workflows (Jetpack Compose & Flows), client-side security hardening, and multi-module Flutter remittance architectures.',
+        detail: 'Mobile Engineer. Cash-in for a remittance app, and security hardening on a legacy Java app.',
         type: 'work',
       },
       {
         year: '2025–2026',
         label: 'Kathmandu Living Labs',
-        detail: 'Mobile Engineer — Location services, real-time navigation workflows, MapLibre SDK, offline tile caching.',
+        detail: 'Mobile Engineer. Baato Maps: navigation, search, and map rendering. Crash rate down 30% in key flows.',
         type: 'work',
       },
       {
         year: '2024–2025',
         label: 'Vision-Based Autonomous UAV — Major Project',
-        detail: 'Final-year capstone at IOE Thapathali Campus. Onboard camera and depth sensing, ROS framework, real-time obstacle avoidance, and dynamic navigation in cluttered spaces.',
+        detail: 'Final-year capstone at IOE Thapathali Campus. Onboard obstacle detection and RRT* on a Raspberry Pi. Logged flight 0–1 m/s, average 0.36 m/s.',
         type: 'research',
       },
       {
         year: '2024',
         label: 'Public Transport Assistant — Minor Project',
-        detail: '6th-semester project at IOE Thapathali Campus. Arduino Mega, GPS/GSM hardware, DNN-based ETA modeling, and WebSocket-driven Django live mapping.',
+        detail: 'Third-year project at IOE Thapathali Campus. GPS and GSM tracker, live map, and a report result of R² 0.965 and MAPE 6.74%.',
         type: 'research',
       },
       {
@@ -346,7 +328,7 @@ export const content: Content = {
       {
         year: '2021–2025',
         label: 'Institute of Engineering (IOE), Thapathali Campus',
-        detail: 'Bachelor of Electronics, Communication and Information Engineering (63.99%).',
+        detail: 'Bachelor of Electronics, Communication and Information Engineering. 63.99% (First Division).',
         type: 'education',
       },
     ],

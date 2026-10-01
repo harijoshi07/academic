@@ -12,11 +12,12 @@ export default function CVPage() {
 
   return (
     <div className="site-shell">
-      {/* CV Header */}
       <header className="cv-header">
         <h1>{p.name}</h1>
         <div className="cv-contact">
-          <span>{p.location} (UTC +5:45)</span>
+          <span>Kathmandu, Nepal</span>
+          <span>·</span>
+          <span>+977-9840046008</span>
           <span>·</span>
           <a className="text-link" href={`mailto:${p.email}`}>{p.email}</a>
           <span>·</span>
@@ -24,109 +25,66 @@ export default function CVPage() {
           <span>·</span>
           <a className="text-link" href={p.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span>·</span>
-          <Link className="text-link" href="/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</Link>
+          <a className="text-link" href={p.cv} target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
         </div>
       </header>
 
-      {/* Research Interests */}
       <section className="cv-section">
         <h2>Research interests</h2>
-        <div>
-          <p className="record-copy" style={{ color: 'var(--ink)' }}>
-            Vision-based obstacle detection and avoidance for small aerial robots in cluttered environments, with a focus on real-time perception and local planning under tight onboard compute and latency budgets. This grew out of my capstone on a vision-based autonomous UAV and my industry work on real-time location and payment systems.
+        <p className="record-copy" style={{ color: 'var(--ink)' }}>
+          Perception and local planning for small aerial robots, and arrival estimation from sparse GPS, when the onboard computer and the link are limited.
+        </p>
+      </section>
+
+      <section className="cv-section">
+        <h2>Education</h2>
+        <div className="cv-item">
+          <h3>Institute of Engineering (IOE), Thapathali Campus</h3>
+          <p className="cv-item-meta">Bachelor of Electronics, Communication and Information Engineering · May 2021 – May 2025</p>
+          <p className="record-copy"><strong>Percentage:</strong> 63.99% (First Division)</p>
+          <p className="record-copy">
+            <strong>Relevant coursework:</strong> Control Systems, Microprocessors & Microcontrollers, Artificial Intelligence, Digital Signal Processing, Computer Networks, Operating Systems, Object-Oriented Programming, Embedded System Design.
           </p>
         </div>
       </section>
 
-      {/* Education */}
       <section className="cv-section">
-        <h2>Education</h2>
-        <div>
-          <div className="cv-item">
-            <h3>B.E. in Electronics, Communication & Information Engineering</h3>
-            <p className="cv-item-meta">
-              Institute of Engineering (IOE), Thapathali Campus · May 2021 – May 2025
-            </p>
-            <p className="record-copy" style={{ marginBottom: '6px' }}>
-              <strong>Percentage:</strong> 63.99%
-            </p>
-            <p className="record-copy">
-              <strong>Relevant Coursework:</strong> Control Systems, Microprocessors & Microcontrollers, Artificial Intelligence, Digital Signal Processing, Computer Networks, Operating Systems, Object-Oriented Programming, Embedded System Design.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Research & Capstone Projects */}
-      <section className="cv-section">
-        <h2>Research & Projects</h2>
+        <h2>Research & projects</h2>
         <div>
           <div className="cv-item">
             <h3>Vision-Based Autonomous UAV for Obstacle Detection, Avoidance, and Navigation</h3>
-            <p className="cv-item-meta">
-              Final-Year Major Capstone Project · IOE Thapathali Campus (Team Lead, team of 4; Supervisor: Er. Umesh Kanta Ghimire) · 2024–2025
+            <p className="cv-item-meta">Capstone · 2024–2025</p>
+            <p className="record-copy">
+              Final-year major project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Umesh Kanta Ghimire (Head of Department).
             </p>
-            <div className="link-row">
-              <a className="text-link" href="https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing" target="_blank" rel="noopener noreferrer">Report</a>
-              <a className="text-link" href="https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing" target="_blank" rel="noopener noreferrer">Demo</a>
-            </div>
             <ul className="cv-list">
-              <li>Built an autonomous quadrotor (F330 frame, Pixhawk 4X, Raspberry Pi 4B) that detects obstacles with YOLOv8 and Intel RealSense D435 RGB-D depth sensing to navigate safely in cluttered environments.</li>
-              <li>Implemented 3D occupancy voxel mapping and an RRT* trajectory planner in ROS on the companion computer, streaming velocity commands to the flight controller over UART at 10 Hz.</li>
-              <li>Optimized YOLOv8 through ONNX export and TensorFlow Lite (TFLite) quantization (FP16/INT8) deployed with OpenCV DNN for low-latency onboard inference on the Raspberry Pi 4B.</li>
-              <li>Validated the pipeline in Gazebo and PX4 simulation, followed by field flight tests at 1.3 m altitude and 0.4 m/s default speed, demonstrating dynamic depth thresholding within 2 m and autonomous waypoint avoidance replanning.</li>
+              <li>Built an F330 quadrotor (Pixhawk 4X, Raspberry Pi 4B, Intel RealSense D435) that detects obstacles with YOLOv8, quantized through ONNX and TFLite (FP16/INT8) and run with OpenCV DNN, then replans with an occupancy map and RRT* on the Pi, sending commands to the Pixhawk over UART.</li>
+              <li>Flew the stack in Gazebo, then in the field: a college parking lot, a forest area, and open ground.</li>
+              <li>On a logged flight the auto segment was 0–1 m/s (average 0.36 m/s) at about 0.9–1.5 m altitude. Early flights were limited by GPS interference from the Pi and the battery; raising the GPS module reduced it.</li>
             </ul>
+            <div className="link-row">
+              <Link className="text-link" href="/software/uav">Write-up</Link>
+            </div>
           </div>
 
           <div className="cv-item">
             <h3>Public Transportation Assistance using Artificial Neural Network</h3>
-            <p className="cv-item-meta">
-              Third-Year Minor Project · IOE Thapathali Campus (Team Lead, team of 4; Supervisor: Er. Kiran Chandra Dahal) · 2024
+            <p className="cv-item-meta">Minor project · 2024</p>
+            <p className="record-copy">
+              Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal.
             </p>
-            <div className="link-row">
-              <a className="text-link" href="https://github.com/harijoshi07/public-transport-assistant-ann" target="_blank" rel="noopener noreferrer">Repository</a>
-              <a className="text-link" href="https://drive.google.com/file/d/1OQ9E2Be1z1Rs9MlQo7qIhcqWz8Cyc8Of/view?usp=sharing" target="_blank" rel="noopener noreferrer">Report</a>
-              <a className="text-link" href="https://drive.google.com/file/d/1QK_E9o4nTWwKg8LO8D3vSZ7M-Gffb--v/view?usp=sharing" target="_blank" rel="noopener noreferrer">Demo</a>
-            </div>
             <ul className="cv-list">
-              <li>Built a GPS tracking unit from an Arduino Mega, NEO-6M GPS, and SIM900 GSM module that posts vehicle position to ThingSpeak every 30 seconds.</li>
-              <li>Built a Django REST Framework backend with Django Channels (WebSockets) that streams live bus positions, routes, and fares to a Leaflet and OpenStreetMap web interface.</li>
-              <li>Trained a feedforward neural network (hidden layers of 64 and 32 units, dropout 0.3) on 2022–2023 bus GPS records to predict travel time between stops, reaching R² = 0.965 on a held-out 20% test set.</li>
+              <li>Built an Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that posts a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets that streams positions, routes, and fares to a Leaflet map.</li>
+              <li>Trained a feedforward network (hidden layers of 64 and 32 units, dropout 0.3) on 2022–2023 corridor GPS records. The project report measured R² = 0.965 and MAPE 6.74% on a held-out test set.</li>
             </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Reports */}
-      <section className="cv-section">
-        <h2>Reports</h2>
-        <div>
-          <div className="cv-item">
-            <h3>Major Project Report (Team Lead, team of 4)</h3>
-            <p className="cv-item-meta">IOE Thapathali Campus · March 2025</p>
-            <p className="record-copy">
-              <em>A Vision based Autonomous UAV for Obstacle Detection, Avoidance and Navigation in Cluttered Environment.</em> Supervisor: Er. Umesh Kanta Ghimire.
-            </p>
             <div className="link-row">
-              <a className="text-link" href="https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open report</a>
-              <a className="text-link" href="https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open demo</a>
-            </div>
-          </div>
-          <div className="cv-item">
-            <h3>Minor Project Report (Team Lead, team of 4)</h3>
-            <p className="cv-item-meta">IOE Thapathali Campus · March 2024</p>
-            <p className="record-copy">
-              <em>Public Transportation Assistance using Artificial Neural Network.</em> Supervisor: Er. Kiran Chandra Dahal.
-            </p>
-            <div className="link-row">
-              <a className="text-link" href="https://drive.google.com/file/d/1OQ9E2Be1z1Rs9MlQo7qIhcqWz8Cyc8Of/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open report</a>
-              <a className="text-link" href="https://drive.google.com/file/d/1QK_E9o4nTWwKg8LO8D3vSZ7M-Gffb--v/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open demo</a>
+              <Link className="text-link" href="/software/transit">Write-up</Link>
+              <a className="text-link" href="https://github.com/harijoshi07/public-transport-assistant-ann" target="_blank" rel="noopener noreferrer">Repository</a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Professional Experience */}
       <section className="cv-section">
         <h2>Experience</h2>
         <div>
@@ -136,12 +94,10 @@ export default function CVPage() {
             <ul className="cv-list">
               <li>Built a cash-in feature for a remittance app in Kotlin and Jetpack Compose that tracks ATM cash deposits in real time using polling, coroutines, and Flows.</li>
               <li>Added security hardening to a legacy Java/XML remittance app: reverse-engineering protection, idle-session logout, screenshot prevention, VPN detection, and new-device detection.</li>
-              <li>Rebuilding a second remittance app in Flutter as a multi-module architecture that separates platform, product, and region-specific solution repositories.</li>
             </ul>
           </div>
-
           <div className="cv-item">
-            <h3>Mobile Systems Engineer · Kathmandu Living Labs</h3>
+            <h3>Mobile Engineer · Kathmandu Living Labs</h3>
             <p className="cv-item-meta">Kathmandu, Nepal · Apr 2025 – Apr 2026</p>
             <ul className="cv-list">
               <li>Built core features of the Baato Maps Android app, including navigation, search, and real-time location data visualization.</li>
@@ -149,7 +105,6 @@ export default function CVPage() {
               <li>Fixed bugs and refactored components, reducing the crash rate by 30% in key user flows.</li>
             </ul>
           </div>
-
           <div className="cv-item">
             <h3>Android Developer Intern · Uncle Sam&apos;s Technologies</h3>
             <p className="cv-item-meta">Remote · Aug 2024 – Sep 2024</p>
@@ -160,16 +115,19 @@ export default function CVPage() {
         </div>
       </section>
 
-      {/* Selected Software Builds */}
       <section className="cv-section">
         <h2>Selected software</h2>
         <div>
           <div className="cv-item">
             <h3>Driving License Exam Nepal</h3>
-            <p className="cv-item-meta">Kotlin, Jetpack Compose, Room DB, Material 3 · 2025</p>
+            <p className="cv-item-meta">Kotlin, Jetpack Compose, Material 3 · 2025</p>
             <p className="record-copy">
               Built an offline-first exam preparation app for Nepal&apos;s driving license test; published on Google Play with 1,000+ downloads.
             </p>
+            <div className="link-row">
+              <a className="text-link" href="https://github.com/harijoshi07/Driving-License-Exam-App" target="_blank" rel="noopener noreferrer">Repository</a>
+              <a className="text-link" href="https://play.google.com/store/apps/details?id=com.hari.drivinglicenseexamnepal_" target="_blank" rel="noopener noreferrer">Google Play</a>
+            </div>
           </div>
           <div className="cv-item">
             <h3>IPO Share</h3>
@@ -177,52 +135,37 @@ export default function CVPage() {
             <p className="record-copy">
               Built an app for IPO allotment discovery and portfolio tracking, with local SQLite caching and live results fetched through Retrofit.
             </p>
+            <div className="link-row">
+              <a className="text-link" href="https://github.com/harijoshi07" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Technical Skills */}
       <section className="cv-section">
         <h2>Technical skills</h2>
         <div>
-          <p className="record-copy" style={{ marginBottom: '8px' }}>
-            <strong>Robotics & Perception:</strong> ROS / ROS 2, PX4, Pixhawk 4X, Gazebo, RGB-D Sensing (Intel RealSense D435), Occupancy Mapping, RRT* and B-spline Trajectory Planning.
-          </p>
-          <p className="record-copy" style={{ marginBottom: '8px' }}>
-            <strong>Machine Learning:</strong> Computer Vision (YOLOv8, TFLite), TensorFlow / Keras, scikit-learn, OpenCV DNN, pandas, NumPy.
-          </p>
-          <p className="record-copy" style={{ marginBottom: '8px' }}>
-            <strong>Languages:</strong> C++, Python, Kotlin, Java, Dart, C, SQL, Bash.
-          </p>
-          <p className="record-copy" style={{ marginBottom: '8px' }}>
-            <strong>Embedded & Hardware:</strong> Arduino Mega, Raspberry Pi 4B, NEO-6M GPS, SIM900 GSM, UART Serial Communication.
-          </p>
-          <p className="record-copy" style={{ marginBottom: '8px' }}>
-            <strong>Mobile:</strong> Android SDK, Jetpack Compose, Flutter, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), MapLibre SDK, Room, Retrofit, Ktor.
-          </p>
-          <p className="record-copy">
-            <strong>Systems & Tools:</strong> Linux, Git, Django REST Framework, Django Channels (WebSockets).
-          </p>
+          <p className="record-copy"><strong>Robotics & perception:</strong> ROS / ROS 2, PX4, Pixhawk 4X, Gazebo, RGB-D sensing (Intel RealSense D435), occupancy mapping, RRT*.</p>
+          <p className="record-copy"><strong>Machine learning:</strong> Computer vision (YOLOv8, TFLite), TensorFlow / Keras, scikit-learn, OpenCV DNN, pandas, NumPy.</p>
+          <p className="record-copy"><strong>Languages:</strong> C++, Python, Kotlin, Java, Dart, C, SQL, Bash.</p>
+          <p className="record-copy"><strong>Embedded & hardware:</strong> Arduino Mega, Raspberry Pi 4B, NEO-6M GPS, SIM900 GSM, UART serial communication.</p>
+          <p className="record-copy"><strong>Mobile:</strong> Android SDK, Jetpack Compose, Flutter, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), MapLibre SDK, Room, Retrofit, Ktor.</p>
+          <p className="record-copy"><strong>Systems & tools:</strong> Linux, Git, Django REST Framework, Django Channels (WebSockets).</p>
         </div>
       </section>
 
-      {/* Honors & Leadership */}
-      <section className="cv-section" style={{ borderBottom: 'none' }}>
-        <h2>Honors & Leadership</h2>
+      <section className="cv-section">
+        <h2>Honors & leadership</h2>
         <div>
           <div className="cv-item">
             <h3>Winner, Dristi 3.0 Hackathon</h3>
             <p className="cv-item-meta">Kathmandu Engineering College · Jan 2025</p>
-            <p className="record-copy">
-              Built an educational Android app teaching Nepali language, culture, and folklore to NRN children.
-            </p>
+            <p className="record-copy">Built an educational Android app teaching Nepali language, culture, and folklore to NRN children.</p>
           </div>
           <div className="cv-item">
             <h3>Secretary, Leo Club of Kathmandu-Aarambha Deurali</h3>
-            <p className="cv-item-meta">Lions Club · 2024 – 2025</p>
-            <p className="record-copy">
-              Organized a blood donation program at Thapathali Campus with 120+ donors.
-            </p>
+            <p className="cv-item-meta">Lions Club · 2024–2025</p>
+            <p className="record-copy">Organized a blood donation program at Thapathali Campus with 120+ donors.</p>
           </div>
         </div>
       </section>

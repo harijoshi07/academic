@@ -113,7 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <a className="text-link" href={p.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 {p.twitter && <a className="text-link" href={p.twitter} target="_blank" rel="noopener noreferrer">Twitter</a>}
                 <a className="text-link" href={`mailto:${p.email}`}>Email</a>
-                <Link className="text-link" href="/cv">CV (PDF)</Link>
+                <a className="text-link" href={p.cv} target="_blank" rel="noopener noreferrer">CV (PDF)</a>
               </div>
             </div>
           </footer>

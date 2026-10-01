@@ -4,6 +4,7 @@
 
 /* ─── Exact abhiyan.me design system tokens ─── */
 :root {
+  color-scheme: light;
   --paper: #f4f0e8;
   --paper-raised: #fbf8f1;
   --ink: #1b1d1c;
@@ -17,6 +18,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --paper: #10141c;
   --paper-raised: #1a2230;
   --ink: #edf1f7;
@@ -235,7 +237,6 @@ ul {
 
 /* ─── Hero ─── */
 .hero {
-  border-bottom: 1px solid var(--line);
   padding: clamp(72px, 11vw, 136px) 0 80px;
 }
 
@@ -303,7 +304,6 @@ ul {
 
 /* ─── Sections ─── */
 .section {
-  border-bottom: 1px solid var(--line);
   padding: 72px 0;
 }
 
@@ -370,16 +370,17 @@ ul {
 }
 
 /* ─── Records (Articles, Projects, Papers) ─── */
-.record-list {
-  border-top: 1px solid var(--line);
-}
-
 .record {
   border-bottom: 1px solid var(--line);
   display: grid;
   grid-template-columns: 130px minmax(0, 1fr);
   gap: 28px;
   padding: 28px 0 32px;
+}
+
+.record:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .record-meta {
@@ -479,8 +480,7 @@ ul {
 
 /* ─── Page Headers & CV ─── */
 .page-hero {
-  border-bottom: 1px solid var(--line);
-  padding: clamp(64px, 9vw, 92px) 0 60px;
+  padding: clamp(64px, 9vw, 92px) 0 28px;
 }
 
 .page-deck {
@@ -496,8 +496,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
-  padding: 64px 0 32px;
-  border-bottom: 1px solid var(--line);
+  padding: 64px 0 8px;
 }
 
 .cv-header h1 {
@@ -521,11 +520,10 @@ ul {
 }
 
 .cv-section {
-  border-bottom: 1px solid var(--line);
   display: grid;
   grid-template-columns: 175px minmax(0, 1fr);
   gap: 36px;
-  padding: 32px 0;
+  padding: 36px 0 4px;
 }
 
 .cv-section h2 {
