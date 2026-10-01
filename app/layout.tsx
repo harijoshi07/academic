@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${content.personal.name} — ${content.personal.title}`,
     description: content.hero.support,
-    url: `https://${content.personal.name.toLowerCase().replace(/\s+/g, '')}.github.io`,
+    url: 'https://harijoshi07.github.io/academic',
     siteName: content.personal.name,
     type: 'website',
   },
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: p.name,
-    url: `https://${p.name.toLowerCase().replace(/\s+/g, '')}.github.io`,
+    url: 'https://harijoshi07.github.io/academic',
     email: `mailto:${p.email}`,
     jobTitle: p.title,
     address: { '@type': 'PostalAddress', addressCountry: 'NP' },

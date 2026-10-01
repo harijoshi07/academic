@@ -1,5 +1,6 @@
 import { content } from '@/content'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: `Curriculum Vitae — ${content.personal.name}`,
@@ -23,7 +24,7 @@ export default function CVPage() {
           <span>·</span>
           <a className="text-link" href={p.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span>·</span>
-          <a className="text-link" href="/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
+          <Link className="text-link" href="/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</Link>
         </div>
       </header>
 
