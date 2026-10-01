@@ -2,6 +2,7 @@
 const nextConfig = {
   output: 'export',
   basePath: '/academic',
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },
