@@ -66,6 +66,10 @@ export default function CVPage() {
             <p className="cv-item-meta">
               Final-Year Major Capstone Project · IOE Thapathali Campus (Team Lead, team of 4; Supervisor: Er. Umesh Kanta Ghimire) · 2024–2025
             </p>
+            <div className="link-row">
+              <a className="text-link" href="https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing" target="_blank" rel="noopener noreferrer">Report</a>
+              <a className="text-link" href="https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing" target="_blank" rel="noopener noreferrer">Demo</a>
+            </div>
             <ul className="cv-list">
               <li>Built an autonomous quadrotor (F330 frame, Pixhawk 4X, Raspberry Pi 4B) that detects obstacles with YOLOv8 and Intel RealSense D435 RGB-D depth sensing to navigate safely in cluttered environments.</li>
               <li>Implemented 3D occupancy voxel mapping and an RRT* trajectory planner in ROS on the companion computer, streaming velocity commands to the flight controller over UART at 10 Hz.</li>
@@ -79,6 +83,11 @@ export default function CVPage() {
             <p className="cv-item-meta">
               Third-Year Minor Project · IOE Thapathali Campus (Team Lead, team of 4; Supervisor: Er. Kiran Chandra Dahal) · 2024
             </p>
+            <div className="link-row">
+              <a className="text-link" href="https://github.com/harijoshi07/public-transport-assistant-ann" target="_blank" rel="noopener noreferrer">Repository</a>
+              <a className="text-link" href="https://drive.google.com/file/d/1OQ9E2Be1z1Rs9MlQo7qIhcqWz8Cyc8Of/view?usp=sharing" target="_blank" rel="noopener noreferrer">Report</a>
+              <a className="text-link" href="https://drive.google.com/file/d/1QK_E9o4nTWwKg8LO8D3vSZ7M-Gffb--v/view?usp=sharing" target="_blank" rel="noopener noreferrer">Demo</a>
+            </div>
             <ul className="cv-list">
               <li>Built a GPS tracking unit from an Arduino Mega, NEO-6M GPS, and SIM900 GSM module that posts vehicle position to ThingSpeak every 30 seconds.</li>
               <li>Built a Django REST Framework backend with Django Channels (WebSockets) that streams live bus positions, routes, and fares to a Leaflet and OpenStreetMap web interface.</li>
@@ -98,6 +107,10 @@ export default function CVPage() {
             <p className="record-copy">
               <em>A Vision based Autonomous UAV for Obstacle Detection, Avoidance and Navigation in Cluttered Environment.</em> Supervisor: Er. Umesh Kanta Ghimire.
             </p>
+            <div className="link-row">
+              <a className="text-link" href="https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open report</a>
+              <a className="text-link" href="https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open demo</a>
+            </div>
           </div>
           <div className="cv-item">
             <h3>Minor Project Report (Team Lead, team of 4)</h3>
@@ -105,6 +118,10 @@ export default function CVPage() {
             <p className="record-copy">
               <em>Public Transportation Assistance using Artificial Neural Network.</em> Supervisor: Er. Kiran Chandra Dahal.
             </p>
+            <div className="link-row">
+              <a className="text-link" href="https://drive.google.com/file/d/1OQ9E2Be1z1Rs9MlQo7qIhcqWz8Cyc8Of/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open report</a>
+              <a className="text-link" href="https://drive.google.com/file/d/1QK_E9o4nTWwKg8LO8D3vSZ7M-Gffb--v/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open demo</a>
+            </div>
           </div>
         </div>
       </section>

@@ -129,6 +129,8 @@ export const content: Content = {
         'Real-time depth processing, ROS node communication topology, compute-constrained local path planning, aerial flight stabilization.',
       tags: ['ROS', 'Computer Vision', 'Depth Sensing', 'UAV Autonomy', 'Embedded Linux', 'C++', 'Python'],
       links: [
+        { label: 'Report', href: 'https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing' },
+        { label: 'Demo', href: 'https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing' },
         { label: 'Collaborator Portfolio', href: 'https://www.kalyankumarshrestha.com.np/' },
       ],
     },
@@ -139,7 +141,7 @@ export const content: Content = {
       question:
         'How can low-cost edge microcontrollers maintain reliable telemetry under intermittent cellular connectivity, and can deep neural networks accurately predict arrival times from sparse historical GPS traces?',
       methodology:
-        'Built an integrated hardware-software pipeline: Arduino Mega + GPS module + SIM800L GSM transmitting time-series spatial coordinates to ThingSpeak, ingested into a Django backend via WebSockets. Trained a Deep Neural Network (DNN) on historical corridor transit logs, integrated with Graphhopper routing for dynamic road network distance estimation.',
+        'Built an integrated hardware-software pipeline: Arduino Mega + NEO-6M GPS + SIM900 GSM transmitting time-series spatial coordinates to ThingSpeak, ingested into a Django backend via WebSockets. Trained a Deep Neural Network (DNN) on historical corridor transit logs, integrated with Graphhopper routing for dynamic road network distance estimation.',
       findings:
         'Network latency fluctuations and packet loss in cellular edge environments require client-side fallback buffering; combining physical road network topology (Graphhopper) with DNN residual learning significantly outperformed static velocity-distance heuristics for arrival estimation.',
       systemsFocus:
@@ -147,6 +149,8 @@ export const content: Content = {
       tags: ['Arduino', 'GPS/GSM', 'Deep Learning', 'Django', 'WebSockets', 'PostgreSQL', 'Graphhopper'],
       links: [
         { label: 'Repository', href: 'https://github.com/harijoshi07/public-transport-assistant-ann' },
+        { label: 'Report', href: 'https://drive.google.com/file/d/1OQ9E2Be1z1Rs9MlQo7qIhcqWz8Cyc8Of/view?usp=sharing' },
+        { label: 'Demo', href: 'https://drive.google.com/file/d/1QK_E9o4nTWwKg8LO8D3vSZ7M-Gffb--v/view?usp=sharing' },
       ],
     },
     {
@@ -199,6 +203,8 @@ export const content: Content = {
       tags: ['ROS', 'Computer Vision', 'YOLOv8', 'Depth Sensing', 'UAV Systems', 'Pixhawk 4X', 'Embedded Linux', 'C++', 'Python', 'RRT*'],
       status: 'Archived',
       links: [
+        { label: 'Report', href: 'https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing' },
+        { label: 'Demo', href: 'https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing' },
         { label: 'Collaborator Portfolio', href: 'https://www.kalyankumarshrestha.com.np/' },
       ],
     },
@@ -214,6 +220,8 @@ export const content: Content = {
       status: 'Archived',
       links: [
         { label: 'Repository', href: 'https://github.com/harijoshi07/public-transport-assistant-ann' },
+        { label: 'Report', href: 'https://drive.google.com/file/d/1OQ9E2Be1z1Rs9MlQo7qIhcqWz8Cyc8Of/view?usp=sharing' },
+        { label: 'Demo', href: 'https://drive.google.com/file/d/1QK_E9o4nTWwKg8LO8D3vSZ7M-Gffb--v/view?usp=sharing' },
       ],
     },
 
