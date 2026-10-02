@@ -11,6 +11,7 @@ export const metadata = pageMetadata(
 const homeProjects = [
   { id: 'autonomous-uav', meta: 'Major project · 2025' },
   { id: 'public-transport-assistant', meta: 'Minor project · 2024' },
+  { id: 'production-mobile-systems', meta: 'Production Systems · 2025–Present' },
 ]
 
 export default function Home() {
@@ -49,7 +50,6 @@ export default function Home() {
                     <p className="record-copy">{project.summary}</p>
                     <div className="link-row">
                       {project.links
-                        .filter((link) => link.label === 'Report' || link.label === 'Demo')
                         .map((link) => (
                           <a key={link.href} className="text-link" href={link.href} target="_blank" rel="noopener noreferrer">
                             {link.label}
@@ -61,9 +61,12 @@ export default function Home() {
               ))}
             </div>
             <p className="record-copy" style={{ marginTop: '28px' }}>
-              The same constraints appear across my work: whether stabilizing a companion computer on an airframe, ingesting sparse GPS over cellular, or keeping client-side navigation responsive under intermittent network in production Android at Kathmandu Living Labs.
+              The same core challenge runs through all three systems: whether tuning local replanning loops on a quadrotor companion computer, streaming sparse GPS over intermittent cellular links, or keeping background location and financial state deterministic in production Android apps.
             </p>
             <div className="link-row">
+              <Link className="text-link" href="/software">
+                Systems & Software Inventory
+              </Link>
               <a className="text-link" href="https://harijoshi07.github.io/portfolio/" target="_blank" rel="noopener noreferrer">
                 Production Mobile Portfolio
               </a>

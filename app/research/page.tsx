@@ -13,7 +13,11 @@ const writeups: Record<string, string> = {
   'public-transport-investigation': '/software/transit',
 }
 
-const recordIds = ['autonomous-uav-investigation', 'public-transport-investigation']
+const recordIds = [
+  'autonomous-uav-investigation',
+  'public-transport-investigation',
+  'production-mobile-investigation',
+]
 
 export default function ResearchPage() {
   const { hero, currentResearch, investigations, publications } = content
@@ -34,7 +38,7 @@ export default function ResearchPage() {
 
       <section className="section" id="current-work">
         <div className="site-shell section-grid">
-          <h2 className="section-label">Two systems</h2>
+          <h2 className="section-label">Three systems</h2>
           <div>
             <p className="record-copy research-home-status">{currentResearch?.status}</p>
             <div className="record-list" style={{ marginTop: '28px' }}>

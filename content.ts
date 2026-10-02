@@ -93,6 +93,9 @@ export const UAV_TITLE =
 export const TRANSIT_TITLE =
   'Real-Time GPS Telemetry and Neural Network ETA Prediction for Urban Transit'
 
+export const PRODUCTION_MOBILE_TITLE =
+  'Resilient Telemetry, On-Device State, and Real-Time Navigation in Production Mobile Systems'
+
 export const content: Content = {
   personal: {
     name: 'Hari Krishna Joshi',
@@ -110,20 +113,20 @@ export const content: Content = {
   hero: {
     eyebrow: 'Kathmandu, Nepal',
     identity:
-      'Electronics engineer preparing for graduate work on perception and navigation when the computer is small.',
+      'Electronics engineer preparing for graduate work on autonomous perception, on-device intelligence, and mobile systems when compute and telemetry are constrained.',
     thesis:
-      'How can autonomous agents and mobile platforms perform reliable perception, localization, and navigation under severe hardware and computational constraints?',
+      'How do intelligent agents—from aerial robots to edge mobile clients—perform reliable perception, state estimation, and sensor ingestion when compute is tight, power is bounded, and network links drop?',
     support:
-      'Electronics engineer in Kathmandu working on onboard perception and live telemetry under tight compute.',
+      'Electronics engineer in Kathmandu working on onboard perception, edge mobile systems, and live telemetry under tight compute.',
   },
 
   currentResearch: {
     question:
-      'How can lightweight vision and sensor fusion models provide real-time spatial awareness and dynamic obstacle avoidance on compute-constrained embedded platforms?',
+      'How can lightweight vision, sensor fusion, and on-device runtime architectures maintain deterministic spatial awareness and live telemetry on severely constrained embedded and mobile hardware?',
     evidence:
-      'A vision quadrotor that replans on a Raspberry Pi, and a Kathmandu corridor tracker whose report measured R² 0.965 and MAPE 6.74%.',
+      'An aerial vision stack replanning on a Raspberry Pi, an IoT urban transit tracker with measured arrival models, and 15+ months of production Android systems engineering (99.9% crash-free).',
     status:
-      'Undergraduate research and engineering completed at Tribhuvan University, IOE Thapathali Campus. Preparing research proposals for Master\'s programs in Computer Science and Robotics.',
+      'Undergraduate research completed at IOE Thapathali Campus; production mobile systems engineering in Kathmandu. Preparing funded Master\'s proposals across robotics/CPS and mobile edge systems.',
   },
 
   investigations: [
@@ -162,6 +165,23 @@ export const content: Content = {
         { label: 'Repository', href: 'https://github.com/harijoshi07/public-transport-assistant-ann' },
         { label: 'Report', href: 'https://drive.google.com/file/d/1OQ9E2Be1z1Rs9MlQo7qIhcqWz8Cyc8Of/view?usp=sharing' },
         { label: 'Demo', href: 'https://drive.google.com/file/d/1QK_E9o4nTWwKg8LO8D3vSZ7M-Gffb--v/view?usp=sharing' },
+      ],
+    },
+    {
+      id: 'production-mobile-investigation',
+      title: PRODUCTION_MOBILE_TITLE,
+      context: 'Production Systems Engineering · Kathmandu Living Labs & Swift Technology (2025–Present)',
+      question:
+        'How do mobile clients maintain deterministic state, background sensor/location streaming, and crash-resilient navigation when network conditions are intermittent and resources are bounded?',
+      methodology:
+        'Engineered location-aware mapping architectures using MapLibre SDK, isolated coroutine scopes, and offline vector tile caching for Baato Maps. Implemented real-time polling with StateFlow/Flows for bank ATM cash-in workflows in Japan Money Express, coupled with client-side anti-tampering and runtime security hardening.',
+      findings:
+        'Reduced production crash rates by 30% across primary navigation and map rendering flows, sustaining 99.9% crash-free user sessions. Maintained reliable background transaction and location tracking under cellular packet loss without leaking main-thread execution.',
+      systemsFocus:
+        'Android SDK internals, MapLibre SDK, structured concurrency (Kotlin Coroutines / Flow), offline-first local persistence (Room DB), client-side security hardening.',
+      tags: ['Android SDK', 'Jetpack Compose', 'MapLibre SDK', 'Coroutines', 'Room DB', 'Security'],
+      links: [
+        { label: 'Portfolio', href: 'https://harijoshi07.github.io/portfolio/' },
       ],
     },
   ],
@@ -223,6 +243,22 @@ export const content: Content = {
     },
 
     // ── Industry & Systems Projects ──
+    {
+      id: 'production-mobile-systems',
+      title: PRODUCTION_MOBILE_TITLE,
+      category: 'mobile systems',
+      description:
+        '15+ months of production Android and mobile systems engineering across Kathmandu Living Labs and Swift Technology. Scaled Baato Maps navigation and real-time ATM remittance flows with client-side security hardening.',
+      systemsFocus:
+        'MapLibre SDK integration, structured concurrency with Kotlin Coroutines and StateFlow, offline vector tile caching, runtime security hardening (anti-tamper, VPN detection, screenshot prevention), and 99.9% crash-free stability.',
+      summary:
+        'Real-time navigation, background telemetry, and hardened client state across 15+ months of production mobile engineering in Nepal.',
+      tags: ['Android SDK', 'Jetpack Compose', 'MapLibre SDK', 'Kotlin Coroutines', 'Flow', 'Room DB', 'Security'],
+      status: 'Active',
+      links: [
+        { label: 'Portfolio', href: 'https://harijoshi07.github.io/portfolio/' },
+      ],
+    },
     {
       id: 'baato-maps',
       title: 'Baato Maps — Location Services',
