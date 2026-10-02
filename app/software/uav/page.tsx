@@ -39,6 +39,9 @@ export default function UavCaseStudy() {
             <p className="record-copy">
               Team of four: Bishal Bhandari, Hari Joshi, Jyotsna Jha, and Kalyan Kumar Shrestha. I led it and did most of the build.
             </p>
+            <p className="record-copy">
+              Submitted to the department as &quot;A Vision based Autonomous UAV for Obstacle Detection, Avoidance and Navigation in Cluttered Environment.&quot;
+            </p>
           </div>
         </div>
       </section>

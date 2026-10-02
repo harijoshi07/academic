@@ -59,7 +59,7 @@ export default function TransitCaseStudy() {
               The map is Django plus Leaflet. Stops and corridors are seeded for Kathmandu. A trip is drawn only when both ends sit on one stored line: walk to the stop, ride the corridor, walk off. Fare is Rs. 20 for the first 5 km, then Rs. 5 for each further 5 km along that line.
             </p>
             <p className="record-copy">
-              Each hop asks a network for minutes. The inputs are the two stop indexes, the hour, the distance, and the speed. Two hidden layers, 64 and 32 units. The running app loads those weights from a scikit-learn file. The earlier TensorFlow script, the model in the report (with dropout 0.3), is still in the repo and is not what the site serves.
+              Each hop asks a network for minutes. The inputs are the two stop indexes, the hour, the distance, and the speed. Two hidden layers, 64 and 32 units. The running app loads those weights from a scikit-learn file. The report&apos;s model, a TensorFlow network with ten inputs and dropout 0.3, is described by the script ml/train_eta_ann.py and is not what the site serves.
             </p>
           </div>
         </div>
@@ -70,10 +70,16 @@ export default function TransitCaseStudy() {
           <h2 className="section-label">What was measured</h2>
           <div className="content-flow">
             <p className="record-copy">
-              The first model, trained in TensorFlow, is the one in the March 2024 report. Table 6-1 gives R² 0.965 and MAPE 6.74% on a 20% test split of the data, with dropout 0.3 between the hidden layers of 64 and 32 units.
+              The report&apos;s model is a TensorFlow network with ten normalized inputs, hidden layers of 64 and 32 units, and dropout 0.3 after each. Table 6-1 gives R² 0.965 and MAPE 6.74% on a 20% test split. Both inputs and targets were min–max scaled and the scores were computed on the scaled targets, so the MAPE is not a percentage of minutes.
             </p>
             <p className="record-copy">
-              The app now serves a scikit-learn network with the same layer sizes, trained on the cleaned 2022–2023 table. On a random 80/20 split of that table, the average error is 0.16 minutes, MAPE is 4.0%, and R² is 0.998. These numbers come from a different model and a different run than the report&apos;s, so they are not directly comparable.
+              The app serves a different model: a scikit-learn network with the same hidden layers and five inputs (current stop, next stop, hour, distance, speed), trained on the cleaned 2022–2023 table. On a random 80/20 split of that table, scored in minutes, the average error is 0.16 minutes, MAPE is 4.0%, and R² is 0.998. These numbers come from a different model, different inputs and a different scale, so they are not comparable with the report&apos;s.
+            </p>
+            <p className="record-copy">
+              Speed is one of the inputs, and travel time is mostly distance divided by speed. In the training table, speed is the recorded hop speed. When the app predicts a new trip it has no recorded speed, so it uses the median speed for the hour. The 0.998 therefore describes a setting the app does not run in.
+            </p>
+            <p className="record-copy">
+              Running an ablation on that cleaned table reveals the exact impact: with speed removed entirely, MAE is 1.92 minutes, MAPE is 42.7%, and R² is 0.582. When the hour-median speed is substituted at test time (matching the deployed app runtime), MAE is 2.55 minutes, MAPE is 41.1%, and R² is 0.136. A pure distance ÷ speed physics baseline on measured speed scores R² = 1.000, confirming that the speed column carries almost all the variance.
             </p>
             <p className="record-copy">
               One stored ride the app will show is Kalanki to Ratnapark: 5.27 km, 19 minutes, Rs. 25.
@@ -87,10 +93,10 @@ export default function TransitCaseStudy() {
           <h2 className="section-label">What it does not show</h2>
           <div className="content-flow">
             <p className="record-copy">
-              It is not a live map of every bus in the valley. The view follows one corridor. A fix older than 30 seconds is marked stale. If two places do not share a stored line, the app does not invent a route across the city.
+              It is not a live map of every bus in the valley. The app follows stored corridors only. In the demo, the Radar tab animates a bus along the planned corridor. A real tracker can post fixes to the API, and the map reads the latest one. A fix older than 30 seconds is marked stale. If two places do not share a stored line, the app does not invent a route across the city.
             </p>
             <p className="record-copy">
-              Both scores come from rows of the same 2022–2023 table, split at random. Rows from the same corridor and hour can land on both sides of the split, so the scores show how well the model fits that table. They do not show how it would predict a new day of traffic, and they do not cover a fix that never arrives.
+              Both sets of scores come from random 80/20 splits of rows from the same tables, so rows from the same corridor and hour can fall on both sides. They show how well each model fits its table. They do not show how it would predict a new day of traffic, and they say nothing about a fix that never arrives.
             </p>
           </div>
         </div>

@@ -58,7 +58,9 @@ export default function ResearchPage() {
                     <p className="research-subhead">What was built</p>
                     <p className="record-copy">{inv.methodology}</p>
 
-                    <p className="research-subhead">What was found</p>
+                    <p className="research-subhead">
+                      {inv.id === 'production-mobile-investigation' ? 'Outcomes' : 'What was found'}
+                    </p>
                     <p className="record-copy">{inv.findings}</p>
 
                     <div className="link-row">
@@ -111,13 +113,16 @@ export default function ResearchPage() {
 
       <section className="section">
         <div className="site-shell section-grid">
-          <h2 className="section-label">What these leave open</h2>
+          <h2 className="section-label">Research directions</h2>
           <div className="content-flow">
             <p className="record-copy">
-              The UAV replans around obstacles from onboard depth, on a Raspberry Pi. It does not yet hold a position estimate when GPS is weak. The open question is state estimation that stays on that same computer.
+              <strong>State estimation on a small computer.</strong> The UAV replans around obstacles from onboard depth, but it relies on GPS for its position. I want to study how far a lightweight visual-inertial approach can replace GPS on a Raspberry Pi-class computer, and what it costs in latency. First step: record camera and flight-controller IMU data on the existing aircraft and compare a lightweight visual-inertial pipeline against the Pixhawk&apos;s GPS-based estimate.
             </p>
             <p className="record-copy">
-              The transit estimate needs both the road graph and a model, and the cellular link drops packets. The open question is an arrival time that stays usable when the next fix is late.
+              <strong>Arrival estimates when fixes are late.</strong> The transit model assumes the next fix arrives. I want to measure how arrival-time error grows as fixes are delayed or dropped, and whether a model that carries its uncertainty stays usable. First step: replay the corridor data with simulated dropouts and plot error against gap length.
+            </p>
+            <p className="record-copy">
+              <strong>Reliable location tracking on mobile clients.</strong> In production Android work I handled GPS polling, offline tile caching and map-view lifecycle problems. I want to measure how these choices affect battery, latency and map smoothness on low-end phones, using an open-source app and public benchmark data rather than employer code.
             </p>
           </div>
         </div>

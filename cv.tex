@@ -115,7 +115,7 @@
 
 %-----------RESEARCH INTERESTS-----------
 \section{Research Interests}
-\small{Perception and local planning for small aerial robots, and arrival estimation from sparse GPS, when the onboard computer and the link are limited.}
+\small{Perception and local planning for small aerial robots, and arrival estimation from sparse GPS, when the onboard computer and the network link are limited.}
 
 %-----------EDUCATION-----------
 \section{Education}
@@ -148,8 +148,8 @@
        \href{https://github.com/harijoshi07/public-transport-assistant-ann}{\faGithub}}{2024}
       \resumeItemListStart
         \resumeItem{\textbf{Team \& role}: Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal.}
-        \resumeItem{Built an Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that posts a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets that streams positions, routes, and fares to a Leaflet map.}
-        \resumeItem{Trained a feedforward network (hidden layers of 64 and 32 units, dropout 0.3) on 2022--2023 corridor GPS records. The project report measured R$^2$ = 0.965 and MAPE 6.74\% on a held-out test set.}
+        \resumeItem{Built an Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that sends a fix every 30 seconds over GPRS, and a Django backend that serves routes, stops and fares to a Leaflet map.}
+        \resumeItem{Trained feedforward networks (hidden layers of 64 and 32 units) on 2022--2023 corridor GPS records. The project report measured R$^2$ = 0.965 and MAPE 6.74\% on a 20\% test split of scaled targets; the deployed scikit-learn model uses five inputs and was scored separately.}
       \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -211,12 +211,12 @@
 \begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt,
                 topsep=0pt, parsep=0pt, partopsep=0pt]
   \small\item{
-    \textbf{Robotics \& Perception}{: ROS / ROS 2, PX4, Pixhawk 4X, Gazebo, RGB-D Sensing (Intel RealSense D435), Occupancy Mapping, RRT*} \\[3pt]
+    \textbf{Robotics \& Perception}{: ROS, PX4, Pixhawk 4X, Gazebo, RGB-D Sensing (Intel RealSense D435), Occupancy Mapping, RRT*} \\[3pt]
     \textbf{Machine Learning}{: Computer Vision (YOLOv8, TFLite), TensorFlow / Keras, scikit-learn, OpenCV DNN, pandas, NumPy} \\[3pt]
     \textbf{Languages}{: C++, Python, Kotlin, Java, Dart, C, SQL, Bash} \\[3pt]
     \textbf{Embedded \& Hardware}{: Arduino Mega, Raspberry Pi 4B, NEO-6M GPS, SIM900 GSM, UART Serial Communication} \\[3pt]
     \textbf{Mobile}{: Android SDK, Jetpack Compose, Flutter, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), MapLibre SDK, Room, Retrofit, Ktor, Hilt, Firebase} \\[3pt]
-    \textbf{Systems \& Tools}{: Linux, Git, Django REST Framework, Django Channels (WebSockets)}
+    \textbf{Systems \& Tools}{: Linux, Git, Django}
   }
 \end{itemize}
 

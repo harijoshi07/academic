@@ -94,7 +94,7 @@ export const TRANSIT_TITLE =
   'Real-Time GPS Telemetry and Neural Network ETA Prediction for Urban Transit'
 
 export const PRODUCTION_MOBILE_TITLE =
-  'Resilient Telemetry, On-Device State, and Real-Time Navigation in Production Mobile Systems'
+  'Production Mobile Systems: Navigation, Location Tracking, and Client Hardening'
 
 export const content: Content = {
   personal: {
@@ -113,20 +113,20 @@ export const content: Content = {
   hero: {
     eyebrow: 'Kathmandu, Nepal',
     identity:
-      'Electronics engineer preparing for graduate work on autonomous perception, on-device intelligence, and mobile systems when compute and telemetry are constrained.',
+      'Electronics engineer seeking a research-based MSc starting in 2027, on perception and navigation for small robots and mobile systems with limited compute and unreliable links.',
     thesis:
-      'How do intelligent agents—from aerial robots to edge mobile clients—perform reliable perception, state estimation, and sensor ingestion when compute is tight, power is bounded, and network links drop?',
+      'How can small robots and mobile devices perceive their surroundings and use live sensor data reliably when compute is limited and network links drop?',
     support:
-      'Electronics engineer in Kathmandu working on onboard perception, edge mobile systems, and live telemetry under tight compute.',
+      'Electronics engineer in Kathmandu working on onboard perception and live telemetry for small robots and mobile systems.',
   },
 
   currentResearch: {
     question:
-      'How can lightweight vision, sensor fusion, and on-device runtime architectures maintain deterministic spatial awareness and live telemetry on severely constrained embedded and mobile hardware?',
+      'How can lightweight vision and sensor processing keep a small robot or a mobile client reliable when compute is limited and the network link drops?',
     evidence:
-      'An aerial vision stack replanning on a Raspberry Pi, an IoT urban transit tracker with measured arrival models, and 15+ months of production Android systems engineering (99.9% crash-free).',
+      'An aerial vision stack replanning on a Raspberry Pi, a GPS and GSM transit tracker with a neural arrival-time model, and more than a year of production Android work.',
     status:
-      'Undergraduate research completed at IOE Thapathali Campus; production mobile systems engineering in Kathmandu. Preparing funded Master\'s proposals across robotics/CPS and mobile edge systems.',
+      'Undergraduate research completed at IOE Thapathali Campus; production mobile engineering in Kathmandu. Preparing applications to research-based Master\'s programs in robotics and mobile systems.',
   },
 
   investigations: [
@@ -141,8 +141,8 @@ export const content: Content = {
       findings:
         'On a logged flight the auto segment was 0–1 m/s (average 0.36 m/s) at about 0.9–1.5 m altitude. Early flights were limited by GPS interference from the Pi and the battery; raising the GPS module reduced it. The log is not fast flight through dense clutter, and it is not flight without GPS.',
       systemsFocus:
-        'Real-time depth processing, ROS node communication topology, compute-constrained local path planning, aerial flight stabilization.',
-      tags: ['ROS', 'Computer Vision', 'Depth Sensing', 'UAV Autonomy', 'Embedded Linux', 'C++', 'Python'],
+        'Onboard depth processing, occupancy mapping and RRT* planning on a Raspberry Pi, with UART commands to a Pixhawk 4X.',
+      tags: ['ROS', 'Computer Vision', 'Depth Sensing', 'UAV Autonomy', 'Embedded Linux', 'Python'],
       links: [
         { label: 'Report', href: 'https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing' },
         { label: 'Demo', href: 'https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing' },
@@ -155,12 +155,12 @@ export const content: Content = {
       question:
         'How do you keep a bus position when the cellular link is intermittent, and how close can a small network get to the arrival time on a known Kathmandu corridor?',
       methodology:
-        'Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that posts a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets that streams positions, routes, and fares to a Leaflet map. A feedforward network (hidden layers of 64 and 32 units) trained on 2022–2023 corridor GPS records. The report\'s TensorFlow version used dropout 0.3; the deployed scikit-learn version does not.',
+        'Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that sends a fix every 30 seconds over GPRS, and a Django backend that accepts fixes over HTTP and serves routes, stops and fares to a Leaflet map. A feedforward network with hidden layers of 64 and 32 units estimates the minutes for each hop, trained on 2022–2023 corridor GPS records. The report\'s TensorFlow version used dropout 0.3; the deployed scikit-learn version does not.',
       findings:
-        'The project report measured R² = 0.965 and MAPE 6.74% on a 20% test split. The model the app now serves, retrained in scikit-learn, scores differently on its own split (see the write-up). A trip is drawn only when both ends share a stored corridor. A fix older than 30 seconds is marked stale.',
+        'The project report measured R² = 0.965 and MAPE 6.74% on a 20% test split of scaled targets. The model the app now serves, retrained in scikit-learn on five inputs, scores differently (see the write-up). A trip is drawn only when both ends share a stored corridor. A fix older than 30 seconds is marked stale.',
       systemsFocus:
-        'Edge hardware sensor acquisition, asynchronous WebSocket ingestion, DNN time-series prediction, spatial database indexing with PostgreSQL.',
-      tags: ['Arduino', 'GPS/GSM', 'Deep Learning', 'Django', 'WebSockets', 'PostgreSQL'],
+        'Sparse GPS telemetry over GSM, a stored-corridor map, and arrival-time estimation with a small feedforward network.',
+      tags: ['Arduino', 'GPS/GSM', 'Neural Network', 'Django', 'Leaflet', 'Python'],
       links: [
         { label: 'Repository', href: 'https://github.com/harijoshi07/public-transport-assistant-ann' },
         { label: 'Report', href: 'https://drive.google.com/file/d/1OQ9E2Be1z1Rs9MlQo7qIhcqWz8Cyc8Of/view?usp=sharing' },
@@ -172,13 +172,13 @@ export const content: Content = {
       title: PRODUCTION_MOBILE_TITLE,
       context: 'Production Systems Engineering · Kathmandu Living Labs & Swift Technology (2025–Present)',
       question:
-        'How do mobile clients maintain deterministic state, background sensor/location streaming, and crash-resilient navigation when network conditions are intermittent and resources are bounded?',
+        'How do production mobile clients keep navigation and location tracking working when the network is intermittent and the device is constrained?',
       methodology:
-        'Engineered location-aware mapping architectures using MapLibre SDK, isolated coroutine scopes, and offline vector tile caching for Baato Maps. Implemented real-time polling with StateFlow/Flows for bank ATM cash-in workflows in Japan Money Express, coupled with client-side anti-tampering and runtime security hardening.',
+        'At Kathmandu Living Labs, built navigation, search and the main map view of the Baato Maps Android app with the MapLibre SDK, including offline tile caching, and fixed threading and lifecycle problems in map views. At Swift Technology, built a cash-in tracking feature for Japan Money Express in Kotlin and Jetpack Compose using polling, coroutines and Flows, and added security hardening to a legacy Java/XML client.',
       findings:
-        'Reduced production crash rates by 30% across primary navigation and map rendering flows, sustaining 99.9% crash-free user sessions. Maintained reliable background transaction and location tracking under cellular packet loss without leaking main-thread execution.',
+        'Crash rate in key flows fell by 30% at Kathmandu Living Labs through coroutine isolation and thread-safe map lifecycle cleanup.',
       systemsFocus:
-        'Android SDK internals, MapLibre SDK, structured concurrency (Kotlin Coroutines / Flow), offline-first local persistence (Room DB), client-side security hardening.',
+        'MapLibre SDK, Kotlin coroutines and Flow, offline tile persistence, client-side security hardening.',
       tags: ['Android SDK', 'Jetpack Compose', 'MapLibre SDK', 'Coroutines', 'Room DB', 'Security'],
       links: [
         { label: 'Portfolio', href: 'https://harijoshi07.github.io/portfolio/' },
@@ -216,7 +216,7 @@ export const content: Content = {
         'Onboard perception and local planning on a Raspberry Pi, occupancy mapping, RRT*, UART commands to a Pixhawk 4X.',
       summary:
         'A quadrotor that sees obstacles with a camera and a depth sensor, then replans a path on a Raspberry Pi.',
-      tags: ['ROS', 'Computer Vision', 'YOLOv8', 'Depth Sensing', 'UAV Systems', 'Pixhawk 4X', 'Embedded Linux', 'C++', 'Python', 'RRT*'],
+      tags: ['ROS', 'Computer Vision', 'YOLOv8', 'Depth Sensing', 'UAV Systems', 'Pixhawk 4X', 'Embedded Linux', 'Python', 'RRT*'],
       status: 'Archived',
       links: [
         { label: 'Report', href: 'https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing' },
@@ -228,12 +228,12 @@ export const content: Content = {
       title: TRANSIT_TITLE,
       category: 'embedded iot',
       description:
-        'Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal. Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) posting a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets streaming positions, routes, and fares to a Leaflet map. The project report measured R² = 0.965 and MAPE 6.74% on a 20% test split.',
+        'Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal. Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) sending a fix every 30 seconds over GPRS, and a Django backend serving routes, stops and fares to a Leaflet map. The project report measured R² = 0.965 and MAPE 6.74% on a 20% test split of scaled targets.',
       systemsFocus:
-        'Sparse GPS telemetry over GSM, a live corridor map, and arrival estimation from a small feedforward network.',
+        'Sparse GPS telemetry over GSM, a stored-corridor map, and arrival-time estimation with a small feedforward network.',
       summary:
         'A GPS and GSM tracker, a live map, and a neural net that estimates bus arrival on Kathmandu corridors.',
-      tags: ['Arduino', 'GPS (NEO-6M)', 'SIM900 GSM', 'Django', 'WebSockets', 'Deep Learning', 'PostgreSQL', 'Python'],
+      tags: ['Arduino', 'GPS (NEO-6M)', 'SIM900 GSM', 'Django', 'Leaflet', 'Neural Network', 'Python'],
       status: 'Archived',
       links: [
         { label: 'Repository', href: 'https://github.com/harijoshi07/public-transport-assistant-ann' },
@@ -248,11 +248,11 @@ export const content: Content = {
       title: PRODUCTION_MOBILE_TITLE,
       category: 'mobile systems',
       description:
-        '15+ months of production Android and mobile systems engineering across Kathmandu Living Labs and Swift Technology. Scaled Baato Maps navigation and real-time ATM remittance flows with client-side security hardening.',
+        'More than a year of production Android engineering at Kathmandu Living Labs and Swift Technology: Baato Maps navigation and location tracking, and a cash-in tracking feature for a remittance app, with client-side security hardening.',
       systemsFocus:
-        'MapLibre SDK integration, structured concurrency with Kotlin Coroutines and StateFlow, offline vector tile caching, runtime security hardening (anti-tamper, VPN detection, screenshot prevention), and 99.9% crash-free stability.',
+        'MapLibre SDK integration, Kotlin coroutines and Flow, offline tile caching, client-side security hardening.',
       summary:
-        'Real-time navigation, background telemetry, and hardened client state across 15+ months of production mobile engineering in Nepal.',
+        'Navigation, location tracking and hardened client state across more than a year of production mobile engineering in Nepal.',
       tags: ['Android SDK', 'Jetpack Compose', 'MapLibre SDK', 'Kotlin Coroutines', 'Flow', 'Room DB', 'Security'],
       status: 'Active',
       links: [
@@ -276,9 +276,9 @@ export const content: Content = {
       title: 'Driving License Exam Nepal',
       category: 'mobile systems',
       description:
-        'Offline-first Android application for driving license exam preparation, built with Room DB local persistence and Material 3 interface.',
+        'Offline-first Android app for Nepal\'s driving license exam, with study mode and exam mode for bike, scooter and car questions. Published on Google Play.',
       systemsFocus:
-        'Offline-first data architecture, local database schema design, background sync, coroutine-backed async operations.',
+        'Offline question bank, Room persistence, Jetpack Compose UI, coroutine-backed async work.',
       tags: ['Kotlin', 'Jetpack Compose', 'Room DB', 'Material 3', 'Offline First'],
       status: 'Active',
       links: [
@@ -317,10 +317,11 @@ export const content: Content = {
   about: {
     bio: [
       'I live in Kathmandu. In 2025 I finished a bachelor\'s in Electronics, Communication and Information Engineering at the Institute of Engineering, Thapathali Campus, Tribhuvan University.',
-      'I want a master\'s on perception and navigation for machines that cannot assume a large computer or a reliable link.',
+      'I am applying to research-based master\'s programs in robotics and mobile systems, on perception and navigation for machines that cannot assume a large computer or a reliable link.',
     ],
     interests: [
-      'Perception and local planning for small aerial robots, and arrival estimation from sparse GPS, when the onboard computer and the link are limited',
+      'Perception and local planning for small aerial robots, when the onboard computer is limited',
+      'Arrival estimation from sparse GPS, and reliable location tracking on mobile clients, when the network link drops',
     ],
     education: [
       {

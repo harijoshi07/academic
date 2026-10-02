@@ -61,15 +61,12 @@ export default function Home() {
               ))}
             </div>
             <p className="record-copy" style={{ marginTop: '28px' }}>
-              The same core challenge runs through all three systems: whether tuning local replanning loops on a quadrotor companion computer, streaming sparse GPS over intermittent cellular links, or keeping background location and financial state deterministic in production Android apps.
+              Production work: Baato Maps at Kathmandu Living Labs, and mobile systems at Swift Technology. See the Software page.
             </p>
             <div className="link-row">
               <Link className="text-link" href="/software">
                 Systems & Software Inventory
               </Link>
-              <a className="text-link" href="https://harijoshi07.github.io/portfolio/" target="_blank" rel="noopener noreferrer">
-                Production Mobile Portfolio
-              </a>
             </div>
           </div>
         </div>
