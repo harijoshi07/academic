@@ -290,7 +290,7 @@ export const content: Content = {
       {
         year: '2026–Present',
         label: 'Swift Technology',
-        detail: 'Mobile Engineer. Cash-in for a remittance app, and security hardening on a legacy Java app.',
+        detail: 'Mobile Engineer. Japan Money Express ATM cash-in in Compose, client-side security hardening, and multi-module Flutter remittance architecture.',
         type: 'work',
       },
       {
