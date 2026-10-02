@@ -1,9 +1,16 @@
 import { content } from '@/content'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/seo'
+import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: `Research — ${content.personal.name}`,
-  description: content.hero.thesis,
+export const metadata = pageMetadata(
+  `Research — ${content.personal.name}`,
+  content.hero.thesis,
+  '/research',
+)
+
+const writeups: Record<string, string> = {
+  'autonomous-uav-investigation': '/software/uav',
+  'public-transport-investigation': '/software/transit',
 }
 
 const recordIds = ['autonomous-uav-investigation', 'public-transport-investigation']
@@ -50,15 +57,16 @@ export default function ResearchPage() {
                     <p className="research-subhead">What was found</p>
                     <p className="record-copy">{inv.findings}</p>
 
-                    {inv.links.length > 0 && (
-                      <div className="link-row">
-                        {inv.links.map((link) => (
-                          <a key={link.href} className="text-link" href={link.href} target="_blank" rel="noopener noreferrer">
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
+                    <div className="link-row">
+                      {writeups[inv.id] && (
+                        <Link className="text-link" href={writeups[inv.id]}>Write-up</Link>
+                      )}
+                      {inv.links.map((link) => (
+                        <a key={link.href} className="text-link" href={link.href} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </article>
               ))}

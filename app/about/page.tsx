@@ -1,10 +1,11 @@
 import { content } from '@/content'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/seo'
 
-export const metadata: Metadata = {
-  title: `About — ${content.personal.name}`,
-  description: `About ${content.personal.name} — background, interests, and education.`,
-}
+export const metadata = pageMetadata(
+  `About — ${content.personal.name}`,
+  `About ${content.personal.name} — background, interests, and education.`,
+  '/about',
+)
 
 export default function AboutPage() {
   const { about, personal } = content

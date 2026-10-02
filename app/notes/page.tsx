@@ -1,11 +1,12 @@
 import { content } from '@/content'
+import { pageMetadata } from '@/seo'
 import Link from 'next/link'
-import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: `Notes — ${content.personal.name}`,
-  description: 'Research notes, experiment logs, and reading notes.',
-}
+export const metadata = pageMetadata(
+  `Notes — ${content.personal.name}`,
+  'Research notes, experiment logs, and reading notes.',
+  '/notes',
+)
 
 export default function NotesPage() {
   const { notes } = content

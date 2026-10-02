@@ -87,6 +87,12 @@ export interface Content {
   }
 }
 
+export const UAV_TITLE =
+  'Vision-Based Autonomous UAV for Obstacle Detection, Avoidance, and Navigation'
+
+export const TRANSIT_TITLE =
+  'Real-Time GPS Telemetry and Neural Network ETA Prediction for Urban Transit'
+
 export const content: Content = {
   personal: {
     name: 'Hari Krishna Joshi',
@@ -123,7 +129,7 @@ export const content: Content = {
   investigations: [
     {
       id: 'autonomous-uav-investigation',
-      title: 'Vision-Based Autonomous UAV Navigation in Cluttered Environments',
+      title: UAV_TITLE,
       context: 'Final-Year Capstone Project · Tribhuvan University, IOE Thapathali Campus (2024–2025)',
       question:
         'How does a small quadrotor see an obstacle and change course when the only computer onboard is a Raspberry Pi?',
@@ -141,14 +147,14 @@ export const content: Content = {
     },
     {
       id: 'public-transport-investigation',
-      title: 'Real-Time GPS Telemetry and Neural Network ETA Prediction for Urban Transit',
+      title: TRANSIT_TITLE,
       context: '6th-Semester Minor Project · Tribhuvan University, IOE Thapathali Campus (2024)',
       question:
         'How do you keep a bus position when the cellular link is intermittent, and how close can a small network get to the arrival time on a known Kathmandu corridor?',
       methodology:
-        'Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that posts a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets that streams positions, routes, and fares to a Leaflet map. A feedforward network (hidden layers of 64 and 32 units, dropout 0.3) trained on 2022–2023 corridor GPS records.',
+        'Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that posts a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets that streams positions, routes, and fares to a Leaflet map. A feedforward network (hidden layers of 64 and 32 units) trained on 2022–2023 corridor GPS records. The report\'s TensorFlow version used dropout 0.3; the deployed scikit-learn version does not.',
       findings:
-        'The project report measured R² = 0.965 and MAPE 6.74% on a held-out test set. A trip is drawn only when both ends share a stored corridor. A fix older than 30 seconds is marked stale.',
+        'The project report measured R² = 0.965 and MAPE 6.74% on a 20% test split. The model the app now serves, retrained in scikit-learn, scores differently on its own split (see the write-up). A trip is drawn only when both ends share a stored corridor. A fix older than 30 seconds is marked stale.',
       systemsFocus:
         'Edge hardware sensor acquisition, asynchronous WebSocket ingestion, DNN time-series prediction, spatial database indexing with PostgreSQL.',
       tags: ['Arduino', 'GPS/GSM', 'Deep Learning', 'Django', 'WebSockets', 'PostgreSQL'],
@@ -182,7 +188,7 @@ export const content: Content = {
     // ── Academic & Robotics Projects ──
     {
       id: 'autonomous-uav',
-      title: 'Vision-Based Autonomous UAV for Obstacle Detection, Avoidance, and Navigation',
+      title: UAV_TITLE,
       category: 'aerial robotics',
       description:
         'Final-year major project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Umesh Kanta Ghimire. F330 quadrotor (Pixhawk 4X, Raspberry Pi 4B, Intel RealSense D435) that detects obstacles with YOLOv8, quantized through ONNX and TFLite and run with OpenCV DNN, then replans with an occupancy map and RRT* on the Pi. Logged auto flight was 0–1 m/s (average 0.36 m/s) at about 0.9–1.5 m altitude.',
@@ -199,10 +205,10 @@ export const content: Content = {
     },
     {
       id: 'public-transport-assistant',
-      title: 'Public Transportation Assistance using Artificial Neural Network',
+      title: TRANSIT_TITLE,
       category: 'embedded iot',
       description:
-        'Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal. Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) posting a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets streaming positions, routes, and fares to a Leaflet map. The project report measured R² = 0.965 and MAPE 6.74% on a held-out test set.',
+        'Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal. Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) posting a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets streaming positions, routes, and fares to a Leaflet map. The project report measured R² = 0.965 and MAPE 6.74% on a 20% test split.',
       systemsFocus:
         'Sparse GPS telemetry over GSM, a live corridor map, and arrival estimation from a small feedforward network.',
       summary:
@@ -255,21 +261,7 @@ export const content: Content = {
       tags: ['Kotlin', 'Jetpack Compose', 'MVVM', 'SQLite', 'Retrofit'],
       status: 'Active',
       links: [
-        { label: 'Repository', href: 'https://github.com/harijoshi07' },
-      ],
-    },
-    {
-      id: 'quizzle',
-      title: 'Quizzle',
-      category: 'mobile systems',
-      description:
-        'Quiz application with offline progress tracking, API-based question fetching, and local Room persistence.',
-      systemsFocus:
-        'Dependency injection with Koin, coroutine-backed networking, offline-first caching strategy, database migration handling.',
-      tags: ['Kotlin', 'Room DB', 'Retrofit', 'Koin DI', 'Coroutines'],
-      status: 'Active',
-      links: [
-        { label: 'Repository', href: 'https://github.com/harijoshi07/Quizzle' },
+        { label: 'Portfolio', href: 'https://harijoshi07.github.io/portfolio/' },
       ],
     },
   ],
@@ -309,14 +301,14 @@ export const content: Content = {
       },
       {
         year: '2024–2025',
-        label: 'Vision-Based Autonomous UAV — Major Project',
+        label: UAV_TITLE,
         detail: 'Final-year capstone at IOE Thapathali Campus. Onboard obstacle detection and RRT* on a Raspberry Pi. Logged flight 0–1 m/s, average 0.36 m/s.',
         type: 'research',
       },
       {
         year: '2024',
-        label: 'Public Transport Assistant — Minor Project',
-        detail: 'Third-year project at IOE Thapathali Campus. GPS and GSM tracker, live map, and a report result of R² 0.965 and MAPE 6.74%.',
+        label: TRANSIT_TITLE,
+        detail: 'Third-year project at IOE Thapathali Campus. GPS and GSM tracker, live map, and a report result of R² 0.965 and MAPE 6.74% on a 20% test split.',
         type: 'research',
       },
       {

@@ -1,11 +1,12 @@
-import { content } from '@/content'
-import type { Metadata } from 'next'
+import { content, TRANSIT_TITLE, UAV_TITLE } from '@/content'
+import { pageMetadata } from '@/seo'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: `Curriculum Vitae — ${content.personal.name}`,
-  description: `Curriculum vitae for ${content.personal.name}.`,
-}
+export const metadata = pageMetadata(
+  `Curriculum Vitae — ${content.personal.name}`,
+  `Curriculum vitae for ${content.personal.name}.`,
+  '/cv',
+)
 
 export default function CVPage() {
   const p = content.personal
@@ -52,7 +53,7 @@ export default function CVPage() {
         <h2>Research & projects</h2>
         <div>
           <div className="cv-item">
-            <h3>Vision-Based Autonomous UAV for Obstacle Detection, Avoidance, and Navigation</h3>
+            <h3>{UAV_TITLE}</h3>
             <p className="cv-item-meta">Capstone · 2024–2025</p>
             <p className="record-copy">
               Final-year major project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Umesh Kanta Ghimire (Head of Department).
@@ -68,14 +69,14 @@ export default function CVPage() {
           </div>
 
           <div className="cv-item">
-            <h3>Public Transportation Assistance using Artificial Neural Network</h3>
+            <h3>{TRANSIT_TITLE}</h3>
             <p className="cv-item-meta">Minor project · 2024</p>
             <p className="record-copy">
               Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal.
             </p>
             <ul className="cv-list">
               <li>Built an Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that posts a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets that streams positions, routes, and fares to a Leaflet map.</li>
-              <li>Trained a feedforward network (hidden layers of 64 and 32 units, dropout 0.3) on 2022–2023 corridor GPS records. The project report measured R² = 0.965 and MAPE 6.74% on a held-out test set.</li>
+              <li>Trained a feedforward network (hidden layers of 64 and 32 units) on 2022–2023 corridor GPS records. The project report measured R² = 0.965 and MAPE 6.74% on a 20% test split; the deployed model was later retrained in scikit-learn.</li>
             </ul>
             <div className="link-row">
               <Link className="text-link" href="/software/transit">Write-up</Link>
@@ -136,7 +137,7 @@ export default function CVPage() {
               Built an app for IPO allotment discovery and portfolio tracking, with local SQLite caching and live results fetched through Retrofit.
             </p>
             <div className="link-row">
-              <a className="text-link" href="https://github.com/harijoshi07" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a className="text-link" href="https://harijoshi07.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Portfolio</a>
             </div>
           </div>
         </div>

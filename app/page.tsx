@@ -1,5 +1,12 @@
 import { content } from '@/content'
+import { pageMetadata } from '@/seo'
 import Link from 'next/link'
+
+export const metadata = pageMetadata(
+  `${content.personal.name} — ${content.personal.title}`,
+  content.hero.support,
+  '/',
+)
 
 const homeProjects = [
   { id: 'autonomous-uav', meta: 'Major project · 2025' },
@@ -54,11 +61,11 @@ export default function Home() {
               ))}
             </div>
             <p className="record-copy" style={{ marginTop: '28px' }}>
-              Production work is Baato Maps at Kathmandu Living Labs. The shipped apps live on the portfolio.
+              The same constraints appear across my work: whether stabilizing a companion computer on an airframe, ingesting sparse GPS over cellular, or keeping client-side navigation responsive under intermittent network in production Android at Kathmandu Living Labs.
             </p>
             <div className="link-row">
               <a className="text-link" href="https://harijoshi07.github.io/portfolio/" target="_blank" rel="noopener noreferrer">
-                Portfolio
+                Production Mobile Portfolio
               </a>
             </div>
           </div>

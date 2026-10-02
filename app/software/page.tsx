@@ -1,32 +1,37 @@
 import { content } from '@/content'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/seo'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: `Software — ${content.personal.name}`,
-  description: 'Academic systems, production mapping work, and shipped Android apps.',
-}
+export const metadata = pageMetadata(
+  `Software — ${content.personal.name}`,
+  'Academic systems, production mapping work, and shipped Android apps.',
+  '/software',
+)
 
 const academicIds: { id: string; meta: string; writeup?: string }[] = [
   { id: 'autonomous-uav', meta: 'Major project · 2025', writeup: '/software/uav' },
   { id: 'public-transport-assistant', meta: 'Minor project · 2024', writeup: '/software/transit' },
 ]
 
-const appLines = [
+const apps = [
   {
-    id: 'driving-license-app',
-    href: 'https://play.google.com/store/apps/details?id=com.hari.drivinglicenseexamnepal_',
-    label: 'Google Play',
+    year: '2025',
+    title: 'Driving License Exam Nepal',
+    stack: 'Kotlin, Jetpack Compose, Material 3',
+    copy: "Offline-first exam practice for Nepal's driving license test. Published on Google Play with 1,000+ downloads.",
+    links: [
+      { label: 'Google Play', href: 'https://play.google.com/store/apps/details?id=com.hari.drivinglicenseexamnepal_' },
+      { label: 'Repository', href: 'https://github.com/harijoshi07/Driving-License-Exam-App' },
+    ],
   },
   {
-    id: 'quizzle',
-    href: 'https://github.com/harijoshi07/Quizzle',
-    label: 'Repository',
-  },
-  {
-    id: 'ipo-share',
-    href: 'https://harijoshi07.github.io/portfolio/',
-    label: 'Portfolio',
+    year: '2026',
+    title: 'IPO Share',
+    stack: 'Kotlin, Android SDK, MVVM, SQLite, Retrofit',
+    copy: 'IPO allotment results and portfolio tracking, with SQLite caching and live results via Retrofit.',
+    links: [
+      { label: 'Portfolio', href: 'https://harijoshi07.github.io/portfolio/' },
+    ],
   },
 ]
 
@@ -37,10 +42,6 @@ export default function SoftwarePage() {
     return project ? [{ project, meta, writeup }] : []
   })
   const baato = projects.find((item) => item.id === 'baato-maps')
-  const apps = appLines.flatMap((line) => {
-    const project = projects.find((item) => item.id === line.id)
-    return project ? [{ ...line, title: project.title }] : []
-  })
 
   return (
     <>
@@ -119,14 +120,18 @@ export default function SoftwarePage() {
           <div>
             <div className="record-list">
               {apps.map((app) => (
-                <article key={app.id} className="record">
-                  <div className="record-meta">Shipped</div>
+                <article key={app.title} className="record">
+                  <div className="record-meta">{app.year}</div>
                   <div>
                     <h3 className="record-title">{app.title}</h3>
+                    <p className="record-copy">{app.stack}</p>
+                    <p className="record-copy">{app.copy}</p>
                     <div className="link-row">
-                      <a className="text-link" href={app.href} target="_blank" rel="noopener noreferrer">
-                        {app.label}
-                      </a>
+                      {app.links.map((link) => (
+                        <a key={link.href} className="text-link" href={link.href} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      ))}
                     </div>
                   </div>
                 </article>

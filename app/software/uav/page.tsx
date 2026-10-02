@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
+import { content, UAV_TITLE } from '@/content'
+import { pageMetadata } from '@/seo'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: 'Vision-Based Autonomous UAV — Hari Krishna Joshi',
-  description:
-    'A quadrotor that detects obstacles with YOLOv8 and a depth camera, then replans on a Raspberry Pi.',
-}
+export const metadata = pageMetadata(
+  `${UAV_TITLE} — ${content.personal.name}`,
+  'A quadrotor that detects obstacles with YOLOv8 and a depth camera, then replans on a Raspberry Pi.',
+  '/software/uav',
+)
 
 const report = 'https://drive.google.com/file/d/1XXjeIgFgG1DwsJRwUCZ7RjVk2_VBTKLe/view?usp=sharing'
 const demo = 'https://drive.google.com/file/d/1MTHDK0L21io8D2WmGxGLWsQl3sj8WFYp/view?usp=sharing'
@@ -16,7 +17,7 @@ export default function UavCaseStudy() {
       <header className="page-hero">
         <div className="site-shell">
           <p className="eyebrow">Major project · March 2025</p>
-          <h1 className="page-title">Vision-based autonomous UAV</h1>
+          <h1 className="page-title page-title-long">{UAV_TITLE}</h1>
           <p className="page-deck">
             How does a small quadrotor see an obstacle and change course when the only computer onboard is a Raspberry Pi?
           </p>
@@ -64,7 +65,7 @@ export default function UavCaseStudy() {
               The report does not publish a single detection score. It says the quantized detector reached a satisfactory mAP, and that this model was what flew on the Pi.
             </p>
             <p className="record-copy">
-              A Pixhawk log from the field tests shows the auto segment between 0 and 1 m/s, averaging 0.36 m/s. Altitude on that log sits between about 0.9 and 1.5 m. GPS lock on the same log is 29 to 32 satellites. The conclusion records flights in the college parking lot, a forest area, and open ground.
+              A Pixhawk log from the field tests shows the auto segment between 0 and 1 m/s, averaging 0.36 m/s. Altitude on that log sits between about 0.9 and 1.5 m. The log&apos;s satellite field reads 29 to 32. The conclusion records flights in the college parking lot, a forest area, and open ground.
             </p>
           </div>
         </div>
@@ -78,7 +79,7 @@ export default function UavCaseStudy() {
               The first physical tests were not limited by the detector. GPS interference from the Raspberry Pi and the battery produced glitches, EKF and AHRS errors, and sudden falls. Raising the GPS module off the other electronics reduced that, which means the perception stack was not the whole stability problem.
             </p>
             <p className="record-copy">
-              The logged flight is low and slow. It is not evidence for fast flight through dense clutter, and it is not flight without GPS. The log shows a strong satellite count.
+              The logged flight is low and slow. It is not evidence for fast flight through dense clutter, and it is not flight without GPS. The log&apos;s satellite field is high, so this was not a weak-GPS test.
             </p>
           </div>
         </div>

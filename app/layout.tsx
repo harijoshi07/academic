@@ -28,20 +28,7 @@ const fontMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  title: `${content.personal.name} — ${content.personal.title}`,
-  description: content.hero.support,
-  openGraph: {
-    title: `${content.personal.name} — ${content.personal.title}`,
-    description: content.hero.support,
-    url: 'https://harijoshi07.github.io/academic',
-    siteName: content.personal.name,
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary',
-    title: `${content.personal.name} — ${content.personal.title}`,
-    description: content.hero.support,
-  },
+  metadataBase: new URL('https://harijoshi07.github.io/academic'),
 }
 
 const NAV_LINKS = [
