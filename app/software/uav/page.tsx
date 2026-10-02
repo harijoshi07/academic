@@ -37,7 +37,7 @@ export default function UavCaseStudy() {
               Final-year major project, Department of Electronics and Computer Engineering, Institute of Engineering, Thapathali Campus. Submitted March 2025. Supervisor Er. Umesh Kanta Ghimire.
             </p>
             <p className="record-copy">
-              Team of four: Bishal Bhandari, Hari Krishna Joshi, Jyotsna Jha, and Kalyan Kumar Shrestha. I led it and did most of the build.
+              Team of four: Bishal Bhandari, Hari Joshi, Jyotsna Jha, and Kalyan Kumar Shrestha. I led it and did most of the build.
             </p>
           </div>
         </div>

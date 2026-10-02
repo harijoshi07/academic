@@ -14,9 +14,9 @@ export function pageMetadata(title: string, description: string, path: string): 
       title,
       description,
       url,
-      siteName: 'Hari Krishna Joshi',
+      siteName: 'Hari Joshi',
       type: 'website',
-      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'Hari Krishna Joshi' }],
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'Hari Joshi' }],
     },
     twitter: {
       card: 'summary_large_image',

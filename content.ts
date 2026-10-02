@@ -98,8 +98,8 @@ export const PRODUCTION_MOBILE_TITLE =
 
 export const content: Content = {
   personal: {
-    name: 'Hari Krishna Joshi',
-    initials: 'HKJ',
+    name: 'Hari Joshi',
+    initials: 'HJ',
     title: 'Robotics & Systems Researcher · Mobile & Embedded Systems Engineer',
     location: 'Kathmandu, Nepal',
     email: 'harijoshi07x@gmail.com',

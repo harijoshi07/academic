@@ -39,7 +39,7 @@ export default function TransitCaseStudy() {
               Minor project, Department of Electronics and Computer Engineering, Institute of Engineering, Thapathali Campus. Defended March 2024. Supervisor Er. Kiran Chandra Dahal. External examiner Er. Yogesh Aryal.
             </p>
             <p className="record-copy">
-              Team of four: Chandra Mohan Sah, Hari Krishna Joshi, Jyotsna Jha, and Khagendra Raj Joshi. I led it and did most of the build.
+              Team of four: Chandra Mohan Sah, Hari Joshi, Jyotsna Jha, and Khagendra Raj Joshi. I led it and did most of the build.
             </p>
             <p className="record-copy">
               Submitted to the department as &quot;Public Transportation Assistance using Artificial Neural Network.&quot;
