@@ -26,7 +26,7 @@ export default function CVPage() {
           <span>·</span>
           <a className="text-link" href={p.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span>·</span>
-          <a className="text-link" href={p.cv} target="_blank" rel="noopener noreferrer" download="Hari_Joshi_Academic_CV.pdf">Download CV (PDF)</a>
+          <a className="text-link" href={p.cv} target="_blank" rel="noopener noreferrer">CV (PDF)</a>
         </div>
       </header>
 

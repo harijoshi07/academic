@@ -81,6 +81,7 @@ export default function AboutPage() {
               {personal.twitter && (
                 <a className="text-link" href={personal.twitter} target="_blank" rel="noopener noreferrer">Twitter</a>
               )}
+              <a className="text-link" href={personal.cv} target="_blank" rel="noopener noreferrer">CV (PDF)</a>
             </div>
           </div>
         </div>
