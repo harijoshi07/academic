@@ -5,7 +5,7 @@ export const basePath = '/academic'
 export const prefixPath = (src: string) => {
   if (!src) return src
   if (src.startsWith('http') || src.startsWith('mailto:') || src.startsWith('data:')) return src
-  if (src.startsWith(basePath)) return src
+  if (src.startsWith(basePath + '/') || src === basePath) return src
   return `${basePath}${src.startsWith('/') ? '' : '/'}${src}`
 }
 
