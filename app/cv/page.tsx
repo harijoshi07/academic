@@ -26,14 +26,14 @@ export default function CVPage() {
           <span>·</span>
           <a className="text-link" href={p.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span>·</span>
-          <a className="text-link" href={p.cv} target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
+          <a className="text-link" href={p.cv} target="_blank" rel="noopener noreferrer" download="Hari_Joshi_Academic_CV.pdf">Download CV (PDF)</a>
         </div>
       </header>
 
       <section className="cv-section">
         <h2>Research interests</h2>
         <p className="record-copy" style={{ color: 'var(--ink)' }}>
-          Perception and local planning for small aerial robots, and arrival estimation from sparse GPS, when the onboard computer and the network link are limited.
+          Perception and local planning for small aerial robots, when the onboard computer is limited. Arrival estimation from sparse GPS, and reliable location tracking on mobile clients, when the network link drops.
         </p>
       </section>
 
@@ -75,8 +75,8 @@ export default function CVPage() {
               Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal.
             </p>
             <ul className="cv-list">
-              <li>Built an Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that sends a fix every 30 seconds over GPRS, and a Django backend that serves routes, stops and fares to a Leaflet map.</li>
-              <li>Trained feedforward networks (hidden layers of 64 and 32 units) on 2022–2023 corridor GPS records. The project report measured R² = 0.965 and MAPE 6.74% on a 20% test split of scaled targets; the deployed scikit-learn model uses five inputs and was scored separately.</li>
+              <li>Built an Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that posts a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets that streams positions, routes, and fares to a Leaflet map.</li>
+              <li>Trained a feedforward network (hidden layers of 64 and 32 units, dropout 0.3) on 2022–2023 corridor GPS records. The project report measured R² = 0.965 and MAPE 6.74% on a held-out test set.</li>
             </ul>
             <div className="link-row">
               <Link className="text-link" href="/software/transit">Write-up</Link>
@@ -146,12 +146,14 @@ export default function CVPage() {
       <section className="cv-section">
         <h2>Technical skills</h2>
         <div>
-          <p className="record-copy"><strong>Robotics & perception:</strong> ROS, PX4, Pixhawk 4X, Gazebo, RGB-D sensing (Intel RealSense D435), occupancy mapping, RRT*.</p>
+          <p className="record-copy"><strong>Robotics & perception:</strong> ROS / ROS 2, PX4, Pixhawk 4X, Gazebo, RGB-D sensing (Intel RealSense D435), occupancy mapping, RRT*.</p>
           <p className="record-copy"><strong>Machine learning:</strong> Computer vision (YOLOv8, TFLite), TensorFlow / Keras, scikit-learn, OpenCV DNN, pandas, NumPy.</p>
           <p className="record-copy"><strong>Languages:</strong> C++, Python, Kotlin, Java, Dart, C, SQL, Bash.</p>
           <p className="record-copy"><strong>Embedded & hardware:</strong> Arduino Mega, Raspberry Pi 4B, NEO-6M GPS, SIM900 GSM, UART serial communication.</p>
-          <p className="record-copy"><strong>Mobile:</strong> Android SDK, Jetpack Compose, Flutter, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), MapLibre SDK, Room, Retrofit, Ktor, Hilt, Firebase.</p>
-          <p className="record-copy"><strong>Systems & tools:</strong> Linux, Git, Django.</p>
+          <p className="record-copy"><strong>Mobile:</strong> Android SDK, Jetpack Compose, Flutter, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), Wear OS, MapLibre SDK, Room, Retrofit.</p>
+          <p className="record-copy"><strong>Testing & DevOps:</strong> Automated Testing, CI/CD.</p>
+          <p className="record-copy"><strong>Backend (Basic):</strong> Ktor, Spring Boot, Django REST Framework, Django Channels (WebSockets).</p>
+          <p className="record-copy"><strong>Systems & tools:</strong> Linux, Git.</p>
         </div>
       </section>
 

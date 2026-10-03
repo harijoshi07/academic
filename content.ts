@@ -1,5 +1,14 @@
 // content.ts — All site content in one place. Fill in your own details.
 
+export const basePath = '/academic'
+
+export const prefixPath = (src: string) => {
+  if (!src) return src
+  if (src.startsWith('http') || src.startsWith('mailto:') || src.startsWith('data:')) return src
+  if (src.startsWith(basePath)) return src
+  return `${basePath}${src.startsWith('/') ? '' : '/'}${src}`
+}
+
 export interface Publication {
   id: string
   year: number
@@ -107,7 +116,7 @@ export const content: Content = {
     linkedin: 'https://linkedin.com/in/harijoshi07',
     orcid: null,
     twitter: 'https://x.com/sometimesIcode_',
-    cv: 'https://drive.google.com/file/d/10iii42ZgEahdjW4edyy8cVo_5Ujwqsd4/view?usp=sharing',
+    cv: prefixPath('/academic_cv.pdf'),
   },
 
   hero: {
@@ -124,7 +133,7 @@ export const content: Content = {
     question:
       'How can lightweight vision and sensor processing keep a small robot or a mobile client reliable when compute is limited and the network link drops?',
     evidence:
-      'An aerial vision stack replanning on a Raspberry Pi, a GPS and GSM transit tracker with a neural arrival-time model, and more than a year of production Android work.',
+      'An aerial vision stack replanning on a Raspberry Pi, a GPS and GSM transit tracker with a neural arrival-time model, and 2+ years of production mobile engineering.',
     status:
       'Undergraduate research completed at IOE Thapathali Campus; production mobile engineering in Kathmandu. Preparing applications to research-based Master\'s programs in robotics and mobile systems.',
   },
@@ -248,11 +257,11 @@ export const content: Content = {
       title: PRODUCTION_MOBILE_TITLE,
       category: 'mobile systems',
       description:
-        'More than a year of production Android engineering at Kathmandu Living Labs and Swift Technology: Baato Maps navigation and location tracking, and a cash-in tracking feature for a remittance app, with client-side security hardening.',
+        '2+ years of production mobile engineering at Kathmandu Living Labs and Swift Technology: Baato Maps navigation and location tracking, ATM cash-in tracking and remittance flows, and client-side security hardening.',
       systemsFocus:
         'MapLibre SDK integration, Kotlin coroutines and Flow, offline tile caching, client-side security hardening.',
       summary:
-        'Navigation, location tracking and hardened client state across more than a year of production mobile engineering in Nepal.',
+        'Navigation, location tracking, payments, and hardened client state across 2+ years of production mobile engineering in Nepal.',
       tags: ['Android SDK', 'Jetpack Compose', 'MapLibre SDK', 'Kotlin Coroutines', 'Flow', 'Room DB', 'Security'],
       status: 'Active',
       links: [

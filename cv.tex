@@ -5,7 +5,7 @@
 % Based on: Jake Gutierrez (MIT License)
 %-------------------------------------------
 
-\documentclass[letterpaper,10pt]{article}
+\documentclass[letterpaper,11pt]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage{latexsym}
@@ -13,6 +13,7 @@
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
@@ -29,69 +30,58 @@
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\setlength{\footskip}{4.5pt}
 
-% Adjust margins for academic density
-\addtolength{\oddsidemargin}{-0.55in}
-\addtolength{\evensidemargin}{-0.55in}
-\addtolength{\textwidth}{1.1in}
-\addtolength{\topmargin}{-.65in}
-\addtolength{\textheight}{1.3in}
+% Adjust margins (same as industry resume)
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
 
 \urlstyle{same}
+
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% --- Section title: spacing handled entirely by \titlespacing ---
-\titleformat{\section}
-  {\scshape\raggedright\large\bfseries}
-  {}{0em}{}[\color{black}\titlerule]
-\titlespacing*{\section}{0pt}{8pt}{4pt}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 % Ensure ATS parsing
 \pdfgentounicode=1
 
-% --- Custom commands ---
-\newcommand{\resumeItem}[1]{\item\small{#1}}
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
 
-% Inner bullet list (used for bullets under headings/projects)
-\newcommand{\resumeItemListStart}{%
-  \begin{itemize}[leftmargin=0.15in, itemsep=1pt, topsep=1pt,
-                  parsep=0pt, partopsep=0pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}}
-
-% Dash list (used for Reports section)
-\newcommand{\resumeDashListStart}{%
-  \begin{itemize}[leftmargin=0.15in, label={\textendash}, itemsep=2pt,
-                  topsep=1pt, parsep=0pt, partopsep=0pt]}
-\newcommand{\resumeDashListEnd}{\end{itemize}}
-
-% Outer list wrapping subheadings/projects
-\newcommand{\resumeSubHeadingListStart}{%
-  \begin{itemize}[leftmargin=0.0in, label={}, itemsep=5pt,
-                  topsep=0pt, parsep=0pt, partopsep=0pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-
-% Subheading (Education / Industry Experience)
-\newcommand{\resumeSubheading}[4]{%
-  \item
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{\small #2} \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-4pt}%
+    \end{tabular*}\vspace{-7pt}
 }
 
-% Project heading
-\newcommand{\resumeProjectHeading}[2]{%
-  \item
-    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & \textbf{\small #2}\\
-    \end{tabular*}\vspace{-4pt}%
+    \end{tabular*}\vspace{-7pt}
 }
 
-% Red placeholder
-\newcommand{\tbd}[1]{{\color{red}[#1]}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+% Consistent spacing: gap between entries within a section, and gap after a section
+\newcommand{\entrygap}{\vspace{5pt}}        % between experience entries
+\newcommand{\projgap}{\vspace{-8pt}}        % between project/leadership entries
+\newcommand{\sectiongap}{\vspace{0pt}}
 
 \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
@@ -102,20 +92,22 @@
 
 %----------HEADING----------
 \begin{center}
-    {\Huge \scshape Hari Joshi} \\[2pt]
-    Kathmandu, Nepal \\[2pt]
-    \small
-    \raisebox{-0.1\height}\faPhone\ +977-9840046008 ~ $|$ ~
+    {\Huge \scshape Hari Joshi} \\ \vspace{2pt}
+    Kathmandu, Nepal \\ \vspace{2pt}
+    \small \raisebox{-0.1\height}\faPhone\ +977-9840046008 ~ $|$ ~
     \href{mailto:harijoshi07x@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{harijoshi07x@gmail.com}} ~ $|$ ~
     \href{https://linkedin.com/in/harijoshi07/}{\raisebox{-0.2\height}\faLinkedin\ \underline{LinkedIn}} ~ $|$ ~
     \href{https://github.com/harijoshi07}{\raisebox{-0.2\height}\faGithub\ \underline{GitHub}} ~ $|$ ~
     \href{https://harijoshi07.github.io/academic/}{\raisebox{-0.2\height}\faGlobe\ \underline{Website}}
+    \vspace{-8pt}
 \end{center}
-\vspace{-6pt}
 
 %-----------RESEARCH INTERESTS-----------
 \section{Research Interests}
-\small{Perception and local planning for small aerial robots, and arrival estimation from sparse GPS, when the onboard computer and the network link are limited.}
+\vspace{-2pt}
+\small{Perception and local planning for small aerial robots, when the onboard computer is limited. Arrival estimation from sparse GPS, and reliable location tracking on mobile clients, when the network link drops.}
+\vspace{4pt}
+\sectiongap
 
 %-----------EDUCATION-----------
 \section{Education}
@@ -124,35 +116,40 @@
       {Institute of Engineering (IOE), Thapathali Campus}{May 2021 -- May 2025}
       {Bachelor of Electronics, Communication and Information Engineering}{Kathmandu, Nepal}
       \resumeItemListStart
-        \resumeItem{\textbf{Percentage}: 63.99\% (First Division)}
+        \resumeItem{\textbf{Percentage}: 63.99\%}
         \resumeItem{\textbf{Relevant Coursework}: Control Systems, Microprocessors \& Microcontrollers, Artificial Intelligence, Digital Signal Processing, Computer Networks, Operating Systems, Object-Oriented Programming, Embedded System Design.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
+\vspace{3pt}
+\sectiongap
 
 %-----------RESEARCH & CAPSTONE PROJECTS-----------
 \section{Research \& Capstone Projects}
+\vspace{-5pt}
 \resumeSubHeadingListStart
 
     \resumeProjectHeading
       {\textbf{Vision-Based Autonomous UAV for Obstacle Detection, Avoidance, and Navigation} $|$ \emph{Capstone} \hspace{4pt}
        \href{https://harijoshi07.github.io/academic/}{\faGlobe}}{2024 -- 2025}
-      \resumeItemListStart
+    \resumeItemListStart
         \resumeItem{\textbf{Team \& role}: Final-year major project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Umesh Kanta Ghimire (Head of Department).}
         \resumeItem{Built an F330 quadrotor (Pixhawk 4X, Raspberry Pi 4B, Intel RealSense D435) that detects obstacles with YOLOv8, quantized through ONNX and TFLite (FP16/INT8) and run with OpenCV DNN, then replans with an occupancy map and RRT* on the Pi, sending commands to the Pixhawk over UART.}
         \resumeItem{Flew the stack in Gazebo, then in the field: a college parking lot, a forest area, and open ground.}
         \resumeItem{On a logged flight the auto segment was 0--1 m/s (average 0.36 m/s) at about 0.9--1.5 m altitude. Early flights were limited by GPS interference from the Pi and the battery; raising the GPS module reduced it.}
-      \resumeItemListEnd
+    \resumeItemListEnd
+    \projgap
 
     \resumeProjectHeading
       {\textbf{Public Transportation Assistance using Artificial Neural Network} $|$ \emph{Minor Project} \hspace{4pt}
        \href{https://github.com/harijoshi07/public-transport-assistant-ann}{\faGithub}}{2024}
-      \resumeItemListStart
+    \resumeItemListStart
         \resumeItem{\textbf{Team \& role}: Third-year minor project at IOE, Thapathali Campus. Team lead of a 4-member team. Supervisor: Er. Kiran Chandra Dahal.}
-        \resumeItem{Built an Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that sends a fix every 30 seconds over GPRS, and a Django backend that serves routes, stops and fares to a Leaflet map.}
-        \resumeItem{Trained feedforward networks (hidden layers of 64 and 32 units) on 2022--2023 corridor GPS records. The project report measured R$^2$ = 0.965 and MAPE 6.74\% on a 20\% test split of scaled targets; the deployed scikit-learn model uses five inputs and was scored separately.}
-      \resumeItemListEnd
+        \resumeItem{Built an Arduino Mega tracker (NEO-6M GPS, SIM900 GSM) that posts a fix to ThingSpeak every 30 seconds, and a Django backend with WebSockets that streams positions, routes, and fares to a Leaflet map.}
+        \resumeItem{Trained a feedforward network (hidden layers of 64 and 32 units, dropout 0.3) on 2022--2023 corridor GPS records. The project report measured R$^2$ = 0.965 and MAPE 6.74\% on a held-out test set.}
+    \resumeItemListEnd
 
 \resumeSubHeadingListEnd
+\sectiongap
 
 %-----------INDUSTRY EXPERIENCE-----------
 \section{Industry Experience}
@@ -162,10 +159,10 @@
       {Mobile Engineer}{Jul 2026 -- Present}
       {Swift Technology}{Kathmandu, Nepal}
       \resumeItemListStart
-        \resumeItem{Built a real-time ATM cash-in feature for Japan Money Express in Kotlin and Jetpack Compose (QR scan at bank ATMs, cash deposit tracking, and remittance status) using coroutines, StateFlow, and periodic polling.}
-        \resumeItem{Engineered client-side security hardening for the legacy Java/XML Japan Money Express app: reverse-engineering protection, idle-session logout, screenshot prevention, VPN detection, and new-device detection.}
-        \resumeItem{Architected a multi-module Flutter remittance app (IME London) with platform, product, and localized solution layers for international markets.}
+        \resumeItem{Built a cash-in feature for a remittance app in Kotlin and Jetpack Compose that tracks ATM cash deposits in real time using polling, coroutines, and Flows.}
+        \resumeItem{Added security hardening to a legacy Java/XML remittance app: reverse-engineering protection, idle-session logout, screenshot prevention, VPN detection, and new-device detection.}
       \resumeItemListEnd
+      \entrygap
 
     \resumeSubheading
       {Mobile Engineer}{Apr 2025 -- Apr 2026}
@@ -175,6 +172,7 @@
         \resumeItem{Built the main map interface with the MapLibre SDK and improved rendering performance.}
         \resumeItem{Fixed bugs and refactored components, reducing the crash rate by 30\% in key user flows.}
       \resumeItemListEnd
+      \entrygap
 
     \resumeSubheading
       {Android Developer Intern}{Aug 2024 -- Sep 2024}
@@ -184,44 +182,59 @@
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
+\sectiongap
 
-%-----------SELECTED SOFTWARE BUILDS-----------
+%-----------SELECTED SOFTWARE PROJECTS-----------
 \section{Selected Software Projects}
+\vspace{-5pt}
 \resumeSubHeadingListStart
 
     \resumeProjectHeading
       {\textbf{Driving License Exam Nepal} $|$ \emph{Kotlin, Jetpack Compose, Material 3} \hspace{4pt}
        \href{https://github.com/harijoshi07/Driving-License-Exam-App}{\faGithub} \hspace{4pt}
        \href{https://play.google.com/store/apps/details?id=com.hari.drivinglicenseexamnepal_}{\faGooglePlay}}{2025}
-      \resumeItemListStart
+    \resumeItemListStart
         \resumeItem{Built an offline-first exam preparation app for Nepal's driving license test; published on Google Play with 1,000+ downloads.}
-      \resumeItemListEnd
+    \resumeItemListEnd
+    \projgap
 
     \resumeProjectHeading
       {\textbf{IPO Share} $|$ \emph{Kotlin, Android SDK, MVVM, SQLite, Retrofit} \hspace{4pt}
        \href{https://github.com/harijoshi07}{\faGithub}}{May 2026}
-      \resumeItemListStart
+    \resumeItemListStart
         \resumeItem{Built an app for IPO allotment discovery and portfolio tracking, with local SQLite caching and live results fetched through Retrofit.}
-      \resumeItemListEnd
+    \resumeItemListEnd
 
 \resumeSubHeadingListEnd
+\sectiongap
 
 %-----------TECHNICAL SKILLS-----------
 \section{Technical Skills}
-\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt,
-                topsep=0pt, parsep=0pt, partopsep=0pt]
-  \small\item{
-    \textbf{Robotics \& Perception}{: ROS, PX4, Pixhawk 4X, Gazebo, RGB-D Sensing (Intel RealSense D435), Occupancy Mapping, RRT*} \\[3pt]
-    \textbf{Machine Learning}{: Computer Vision (YOLOv8, TFLite), TensorFlow / Keras, scikit-learn, OpenCV DNN, pandas, NumPy} \\[3pt]
-    \textbf{Languages}{: C++, Python, Kotlin, Java, Dart, C, SQL, Bash} \\[3pt]
-    \textbf{Embedded \& Hardware}{: Arduino Mega, Raspberry Pi 4B, NEO-6M GPS, SIM900 GSM, UART Serial Communication} \\[3pt]
-    \textbf{Mobile}{: Android SDK, Jetpack Compose, Flutter, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), MapLibre SDK, Room, Retrofit, Ktor, Hilt, Firebase} \\[3pt]
-    \textbf{Systems \& Tools}{: Linux, Git, Django}
-  }
-\end{itemize}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Robotics \& Perception}{: ROS / ROS 2, PX4, Pixhawk 4X, Gazebo, RGB-D Sensing (Intel RealSense D435), Occupancy Mapping, RRT*} \\
+     \vspace{3pt}
+     \textbf{Machine Learning}{: Computer Vision (YOLOv8, TFLite), TensorFlow / Keras, scikit-learn, OpenCV DNN, pandas, NumPy} \\
+     \vspace{3pt}
+     \textbf{Languages}{: C++, Python, Kotlin, Java, Dart, C, SQL, Bash} \\
+     \vspace{3pt}
+     \textbf{Embedded \& Hardware}{: Arduino Mega, Raspberry Pi 4B, NEO-6M GPS, SIM900 GSM, UART Serial Communication} \\
+     \vspace{3pt}
+     \textbf{Mobile}{: Android SDK, Jetpack Compose, Flutter, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), Wear OS, MapLibre SDK, Room, Retrofit} \\
+     \vspace{3pt}
+     \textbf{Testing \& DevOps}{: Automated Testing, CI/CD} \\
+     \vspace{3pt}
+     \textbf{Backend (Basic)}{: Ktor, Spring Boot, Django REST Framework, Django Channels (WebSockets)} \\
+     \vspace{3pt}
+     \textbf{Systems \& Tools}{: Linux, Git}
+    }}
+ \end{itemize}
+\vspace{-3pt}
+\sectiongap
 
 %-----------HONORS & LEADERSHIP---------------
 \section{Honors \& Leadership}
+\vspace{-5pt}
 \resumeSubHeadingListStart
 
     \resumeProjectHeading
@@ -229,6 +242,7 @@
     \resumeItemListStart
         \resumeItem{Built an educational Android app teaching Nepali language, culture, and folklore to NRN children.}
     \resumeItemListEnd
+    \projgap
 
     \resumeProjectHeading
       {\textbf{Secretary, Leo Club of Kathmandu-Aarambha Deurali} $|$ \emph{Lions Club}}{2024 -- 2025}
